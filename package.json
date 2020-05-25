@@ -43,6 +43,7 @@
     "clear": "^0.1.0",
     "configstore": "^5.0.1",
     "inquirer": "^7.1.0",
-    "pickitt": "^3.2.0"
+    "pickitt": "^3.2.0",
+    "yargs": "^15.3.1"
   }
 }
