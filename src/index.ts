@@ -1,1 +1,5 @@
-console.log("Hello World");
+const main = () => {
+  console.log("Hello World");
+};
+
+export default main;

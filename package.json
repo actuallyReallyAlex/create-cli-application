@@ -2,7 +2,13 @@
   "name": "create-cli-application",
   "version": "0.0.0",
   "description": "A bootstrapper for creating a cli application with Node.",
+  "bin": {
+    "create-cli-application": "./index.js"
+  },
   "main": "index.js",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build": "rimraf build && tsc",
     "start": "node build/index.js",
@@ -25,6 +31,18 @@
   },
   "homepage": "https://github.com/alexlee-dev/create-cli-application#readme",
   "devDependencies": {
+    "@types/clear": "^0.1.0",
+    "@types/configstore": "^4.0.0",
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^14.0.5",
     "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "boxen": "^4.2.0",
+    "chalk": "^4.0.0",
+    "clear": "^0.1.0",
+    "configstore": "^5.0.1",
+    "inquirer": "^7.1.0",
+    "pickitt": "^3.2.0"
   }
 }

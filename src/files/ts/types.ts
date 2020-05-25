@@ -1,0 +1,16 @@
+import EventEmitter from "events";
+import Configstore from "configstore";
+
+export interface AppState {
+  config: Configstore;
+  menuAction: MenuAction;
+  menuActionEmitter: EventEmitter.EventEmitter;
+}
+
+export type MenuAction =
+  | "about"
+  | "exit"
+  | "option1"
+  | "option2"
+  | "option3"
+  | null;
