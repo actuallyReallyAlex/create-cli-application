@@ -32,6 +32,7 @@
   "homepage": "https://github.com/alexlee-dev/create-cli-application#readme",
   "devDependencies": {
     "@types/clear": "^0.1.0",
+    "@types/commander": "^2.12.2",
     "@types/configstore": "^4.0.0",
     "@types/inquirer": "^6.5.0",
     "@types/node": "^14.0.5",
@@ -42,9 +43,9 @@
     "boxen": "^4.2.0",
     "chalk": "^4.0.0",
     "clear": "^0.1.0",
+    "commander": "^5.1.0",
     "configstore": "^5.0.1",
     "inquirer": "^7.1.0",
-    "pickitt": "^3.2.0",
-    "yargs": "^15.3.1"
+    "pickitt": "^3.2.0"
   }
 }
