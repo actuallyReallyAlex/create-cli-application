@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Support for both JS (deafult language) and TS (passed as '--typescript' option)
+
 ### Changed
 
 ### Removed

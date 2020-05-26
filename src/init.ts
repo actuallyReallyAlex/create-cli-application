@@ -12,12 +12,19 @@ export const createProjectDirectory = async (
   language: "js" | "ts"
 ): Promise<void> => {
   const root = path.resolve(applicationName);
-  // const originalDirectory = process.cwd();
 
   fs.ensureDirSync(root);
 
   console.log();
   console.log(`Creating a new CLI app in ${chalk.yellowBright(root)}.`);
+  console.log();
+  console.log(
+    `Source Language: ${
+      language === "js"
+        ? chalk.yellowBright("JavaScript")
+        : chalk.yellowBright("TypeScript")
+    }`
+  );
   console.log();
 
   // TODO - Interactive mode to fill in some of these values
