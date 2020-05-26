@@ -30,6 +30,8 @@ export const createProjectDirectory = async (
       [applicationName]: "./index.js",
     },
     scripts: {
+      build: "rimraf build && tsc",
+      start: "node build/index.js",
       test: 'echo "Error: no test specified" && exit 1',
     },
     keywords: [],
