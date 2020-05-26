@@ -5,6 +5,7 @@ import * as Sentry from "@sentry/node";
 Sentry.init({
   dsn:
     "https://55c913cc3d394f71ba669fda095698fd@o202486.ingest.sentry.io/5254191",
+  release: "0.2.0",
 });
 
 import {
