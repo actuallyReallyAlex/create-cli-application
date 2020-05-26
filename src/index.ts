@@ -1,6 +1,7 @@
+import * as Sentry from "@sentry/node";
 import chalk from "chalk";
 import commander from "commander";
-import * as Sentry from "@sentry/node";
+import inquirer from "inquirer";
 
 Sentry.init({
   dsn:
@@ -32,7 +33,13 @@ const main = async (): Promise<void> => {
       })
       .option(
         "--typescript",
-        "use TypeScript as the cli application source language"
+        "use TypeScript as the cli application source language",
+        false
+      )
+      .option(
+        "--interactive",
+        "Have the bootstrapper walk you through the process",
+        false
       )
       .on("--help", () => {
         console.log(
@@ -52,7 +59,29 @@ const main = async (): Promise<void> => {
       return handleIncorrectApplicationName(program);
     }
 
-    if (program.typescript) language = "ts";
+    if (program.interactive) {
+      // * Interactive walk-thru
+      // * Language
+      const answers = await inquirer.prompt([
+        {
+          type: "list",
+          name: "language",
+          message: "Please select a source language:",
+          choices: [
+            { value: "js", name: "JavaScript" },
+            { value: "ts", name: "TypeScript" },
+          ],
+        },
+      ]);
+      const languageChoice: "js" | "ts" = answers.language;
+      language = languageChoice;
+
+      // TODO - Compiler Choice (Babel vs. other)
+      // TODO - Add Prettier
+      // TODO - Add ESLint / Other Linter
+      // TODO - Menu Color Option
+    }
+    if (program.typescript && !program.interactive) language = "ts";
 
     await createProjectDirectory(applicationName, language);
 
