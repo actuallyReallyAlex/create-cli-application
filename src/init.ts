@@ -139,7 +139,8 @@ export const installDevDependencies = async (
  */
 export const copyTemplateFiles = async (
   applicationName: string,
-  language: "js" | "ts"
+  language: "js" | "ts",
+  authorName: string
 ): Promise<void> => {
   // * Application Directory
   const root = path.resolve(applicationName);
@@ -201,9 +202,13 @@ export const copyTemplateFiles = async (
         path.join(root, "/src/menu.js"),
         "utf-8"
       );
-      const newMenuFileContent = menuFile.replace(
+      let newMenuFileContent = menuFile.replace(
         /___APP NAME___/gm,
         applicationName
+      );
+      newMenuFileContent = newMenuFileContent.replace(
+        /___AUTHOR NAME___/gm,
+        authorName
       );
       await fs.writeFile(
         path.join(root, "/src/menu.js"),
@@ -246,9 +251,13 @@ export const copyTemplateFiles = async (
         path.join(root, "/src/menu.ts"),
         "utf-8"
       );
-      const newMenuFileContent = menuFile.replace(
+      let newMenuFileContent = menuFile.replace(
         /___APP NAME___/gm,
         applicationName
+      );
+      newMenuFileContent = newMenuFileContent.replace(
+        /___AUTHOR NAME___/gm,
+        authorName
       );
       await fs.writeFile(
         path.join(root, "/src/menu.ts"),

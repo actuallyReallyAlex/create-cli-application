@@ -28,6 +28,7 @@ import { cleanupError } from "./util";
  */
 const main = async (): Promise<void> => {
   let applicationName;
+  let authorName = "YOUR NAME";
 
   try {
     // * Used to set the directory, application name, and inserted into templates
@@ -79,7 +80,7 @@ const main = async (): Promise<void> => {
       // * Interactive walk-thru
 
       // * Language
-      const answers = await inquirer.prompt([
+      const languageAnswer = await inquirer.prompt([
         {
           type: "list",
           name: "language",
@@ -90,10 +91,21 @@ const main = async (): Promise<void> => {
           ],
         },
       ]);
-      const languageChoice: "js" | "ts" = answers.language;
+      const languageChoice: "js" | "ts" = languageAnswer.language;
       language = languageChoice;
 
-      // TODO - Author Name
+      // * Author Name
+      const nameAnswer = await inquirer.prompt([
+        {
+          type: "input",
+          name: "name",
+          message:
+            "Please input your name (used for the 'About' screen, but not required):",
+        },
+      ]);
+      const name: string = nameAnswer.name;
+      authorName = name;
+
       // TODO - Compiler Choice (Babel vs. other)
       // TODO - Add Prettier
       // TODO - Add ESLint / Other Linter
@@ -113,7 +125,7 @@ const main = async (): Promise<void> => {
     await installDevDependencies(applicationName, language);
 
     // * Copies template files and inserts `applicationName` into the files
-    await copyTemplateFiles(applicationName, language);
+    await copyTemplateFiles(applicationName, language, authorName);
 
     // * Creates a tsconfig.json file
     if (language === "ts") await createTSConfig(applicationName);

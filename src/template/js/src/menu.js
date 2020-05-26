@@ -73,7 +73,7 @@ export const interpretMenuAction = async (state) => {
       about: async (state) => {
         await titleScreen("___APP NAME___");
         console.log(
-          boxen(chalk.yellow(`Author: `) + "YOUR NAME", blankBoxenStyle)
+          boxen(chalk.yellow(`Author: `) + "___AUTHOR NAME___", blankBoxenStyle)
         );
 
         console.log("Press any key to return to Main Menu ...");
