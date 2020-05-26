@@ -8,7 +8,7 @@ const setup = async (state) => {
 
     console.log(
       `Welcome to ${chalk.yellowBright(
-        "APP NAME"
+        "___APP NAME___"
       )}! Let's walk you through the initial set up.\n`
     );
 

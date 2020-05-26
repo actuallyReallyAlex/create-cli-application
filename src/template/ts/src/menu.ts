@@ -73,7 +73,7 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
     }
     const actions = {
       about: async (state: AppState): Promise<void> => {
-        await titleScreen("APP NAME");
+        await titleScreen("___APP NAME___");
         console.log(
           boxen(chalk.yellow(`Author: `) + "YOUR NAME", blankBoxenStyle)
         );
@@ -83,7 +83,7 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
         state.menuActionEmitter.emit("actionCompleted", state);
       },
       option1: async (state: AppState): Promise<void> => {
-        await titleScreen("APP NAME");
+        await titleScreen("___APP NAME___");
         console.log("Option 1 Logic would take place here :)");
         console.log("");
 
@@ -92,7 +92,7 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
         state.menuActionEmitter.emit("actionCompleted", state);
       },
       option2: async (state: AppState): Promise<void> => {
-        await titleScreen("APP NAME");
+        await titleScreen("___APP NAME___");
         console.log("Option 2 Logic would take place here :)");
         console.log("");
 
@@ -101,7 +101,7 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
         state.menuActionEmitter.emit("actionCompleted", state);
       },
       option3: async (state: AppState): Promise<void> => {
-        await titleScreen("APP NAME");
+        await titleScreen("___APP NAME___");
         console.log("Option 3 Logic would take place here :)");
         console.log("");
 

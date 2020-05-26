@@ -9,12 +9,12 @@ import setup from "./setup";
 const main = async () => {
   const menuActionEmitter = new EventEmitter.EventEmitter();
   menuActionEmitter.on("actionCompleted", async (state) => {
-    await titleScreen("APP NAME");
+    await titleScreen("___APP NAME___");
     await displayMainMenu(state);
     await interpretMenuAction(state);
   });
 
-  const config = new Configstore("app-name");
+  const config = new Configstore("___APP NAME___");
 
   const state = {
     config,
@@ -30,7 +30,7 @@ const main = async () => {
       clear();
     }
 
-    await titleScreen("APP NAME");
+    await titleScreen("___APP NAME___");
     await displayMainMenu(state);
 
     await interpretMenuAction(state);
