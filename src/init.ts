@@ -34,8 +34,6 @@ export const createProjectDirectory = async (
   );
   console.log();
 
-  // TODO - Interactive mode to fill in some of these values
-
   const packageJson = {
     name: applicationName,
     version: "0.0.0",

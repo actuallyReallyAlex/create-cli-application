@@ -21,14 +21,16 @@ import {
   displaySuccessMessage,
 } from "./init";
 import { handleIncorrectApplicationName } from "./program";
+import { cleanupError } from "./util";
 
 /**
  * Main CLI Program
  */
 const main = async (): Promise<void> => {
+  let applicationName;
+
   try {
     // * Used to set the directory, application name, and inserted into templates
-    let applicationName;
     let language: "js" | "ts";
     // * Default language is JavaScript
     language = "js";
@@ -110,6 +112,8 @@ const main = async (): Promise<void> => {
     // * Installs dev dependencies
     await installDevDependencies(applicationName, language);
 
+    throw new Error("FAKE ERROR");
+
     // * Copies template files and inserts `applicationName` into the files
     await copyTemplateFiles(applicationName, language);
 
@@ -119,7 +123,7 @@ const main = async (): Promise<void> => {
     // * Displays a success message to the user
     displaySuccessMessage(applicationName);
   } catch (error) {
-    // TODO - Cleanup
+    await cleanupError(applicationName);
     console.error(error);
     throw new Error(error);
   }

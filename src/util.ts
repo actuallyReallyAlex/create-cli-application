@@ -1,4 +1,6 @@
 import { spawn } from "child_process";
+import fs from "fs-extra";
+import path from "path";
 
 /**
  * Executes a command in a spawned process.
@@ -28,3 +30,20 @@ export const executeCommand = async (
       console.log({ message });
     });
   });
+
+export const cleanupError = async (
+  applicationName: string | undefined
+): Promise<void> => {
+  try {
+    if (!applicationName) {
+      return;
+    }
+
+    // * Application Directory
+    const root = path.resolve(applicationName);
+
+    await executeCommand("rimraf", [root]);
+  } catch (error) {
+    throw new Error(error);
+  }
+};

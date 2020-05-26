@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Interactive option. Use the flag `--interactive` to use this mode.
 - Comments :)
+- Cleanup on global error
 
 ### Changed
 
