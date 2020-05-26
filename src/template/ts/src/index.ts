@@ -15,7 +15,7 @@ const main = async (): Promise<void> => {
     await interpretMenuAction(state);
   });
 
-  const config = new Configstore("app-name");
+  const config = new Configstore("___APP NAME___");
 
   const state: AppState = {
     config,

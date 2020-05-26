@@ -146,7 +146,105 @@ export const copyTemplateFiles = async (
     }
 
     // * Apply the applicationName to template files
-    
+    const readmeFile = await fs.readFile(path.join(root, "README.md"), "utf-8");
+    const newReadmeContent = readmeFile.replace(
+      /___APP NAME___/gm,
+      applicationName
+    );
+    await fs.writeFile(path.join(root, "README.md"), newReadmeContent, "utf8");
+
+    if (language === "js") {
+      // * src/index.js
+      const indexFile = await fs.readFile(
+        path.join(root, "/src/index.js"),
+        "utf-8"
+      );
+      const newIndexFileContent = indexFile.replace(
+        /___APP NAME___/gm,
+        applicationName
+      );
+      await fs.writeFile(
+        path.join(root, "/src/index.js"),
+        newIndexFileContent,
+        "utf8"
+      );
+
+      // * src/menu.js
+      const menuFile = await fs.readFile(
+        path.join(root, "/src/menu.js"),
+        "utf-8"
+      );
+      const newMenuFileContent = menuFile.replace(
+        /___APP NAME___/gm,
+        applicationName
+      );
+      await fs.writeFile(
+        path.join(root, "/src/menu.js"),
+        newMenuFileContent,
+        "utf8"
+      );
+
+      // * src/setup.js
+      const setupFile = await fs.readFile(
+        path.join(root, "/src/setup.js"),
+        "utf-8"
+      );
+      const newSetupFileContent = setupFile.replace(
+        /___APP NAME___/gm,
+        applicationName
+      );
+      await fs.writeFile(
+        path.join(root, "/src/setup.js"),
+        newSetupFileContent,
+        "utf8"
+      );
+    } else if (language === "ts") {
+      // * src/index.ts
+      const indexFile = await fs.readFile(
+        path.join(root, "/src/index.ts"),
+        "utf-8"
+      );
+      const newIndexFileContent = indexFile.replace(
+        /___APP NAME___/gm,
+        applicationName
+      );
+      await fs.writeFile(
+        path.join(root, "/src/index.ts"),
+        newIndexFileContent,
+        "utf8"
+      );
+
+      // * src/menu.ts
+      const menuFile = await fs.readFile(
+        path.join(root, "/src/menu.ts"),
+        "utf-8"
+      );
+      const newMenuFileContent = menuFile.replace(
+        /___APP NAME___/gm,
+        applicationName
+      );
+      await fs.writeFile(
+        path.join(root, "/src/menu.ts"),
+        newMenuFileContent,
+        "utf8"
+      );
+
+      // * src/setup.ts
+      const setupFile = await fs.readFile(
+        path.join(root, "/src/setup.ts"),
+        "utf-8"
+      );
+      const newSetupFileContent = setupFile.replace(
+        /___APP NAME___/gm,
+        applicationName
+      );
+      await fs.writeFile(
+        path.join(root, "/src/setup.ts"),
+        newSetupFileContent,
+        "utf8"
+      );
+    }
+
     spinner.succeed("Template files copied successfully");
   } catch (error) {
     spinner.fail();
