@@ -20,13 +20,19 @@ import { handleIncorrectApplicationName } from "./program";
 const main = async (): Promise<void> => {
   try {
     let applicationName;
+    let language: "js" | "ts";
+    language = "js";
     const program = new commander.Command("create-cli-application")
-      .version("0.0.0")
+      .version("0.2.0")
       .arguments("<application-name>")
       .usage(`${chalk.yellowBright("<application-name>")} [options]`)
       .action((name) => {
         applicationName = name;
       })
+      .option(
+        "--typescript",
+        "use TypeScript as the cli application source language"
+      )
       .on("--help", () => {
         console.log(
           `\nOnly ${chalk.yellowBright("<application-name>")} is required.`
@@ -40,21 +46,22 @@ const main = async (): Promise<void> => {
       })
       .parse(process.argv);
 
+    // TODO - Catch names like "my.app.name" or "my app name"
     if (applicationName === "." || !applicationName) {
       return handleIncorrectApplicationName(program);
     }
 
-    // TODO - Catch names like "my.app.name" or "my app name"
+    if (program.typescript) language = "ts";
 
-    await createProjectDirectory(applicationName);
+    await createProjectDirectory(applicationName, language);
 
     await installDependencies(applicationName);
 
-    await installDevDependencies(applicationName);
+    await installDevDependencies(applicationName, language);
 
-    await copyTemplateFiles(applicationName);
+    await copyTemplateFiles(applicationName, language);
 
-    await createTSConfig(applicationName);
+    if (language === "ts") await createTSConfig(applicationName);
 
     displaySuccessMessage(applicationName);
   } catch (error) {

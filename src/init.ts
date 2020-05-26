@@ -4,11 +4,12 @@ import ora from "ora";
 import os from "os";
 import path from "path";
 
-import { dependencies, devDependencies } from "./constants";
+import { dependencies, devDependencies, devDependenciesTS } from "./constants";
 import { executeCommand } from "./util";
 
 export const createProjectDirectory = async (
-  applicationName: string
+  applicationName: string,
+  language: "js" | "ts"
 ): Promise<void> => {
   const root = path.resolve(applicationName);
   // const originalDirectory = process.cwd();
@@ -30,7 +31,7 @@ export const createProjectDirectory = async (
       [applicationName]: "./index.js",
     },
     scripts: {
-      build: "rimraf build && tsc",
+      build: language === "ts" ? "rimraf build && tsc" : "babel src -d build",
       start: "node build/index.js -- start",
       test: 'echo "Error: no test specified" && exit 1',
     },
@@ -77,7 +78,8 @@ export const installDependencies = async (
 };
 
 export const installDevDependencies = async (
-  applicationName: string
+  applicationName: string,
+  language: "js" | "ts"
 ): Promise<void> => {
   const root = path.resolve(applicationName);
 
@@ -88,6 +90,13 @@ export const installDevDependencies = async (
     const installCommand = "npm";
     let installArgs = ["install", "--save"];
     installArgs = installArgs.concat(devDependencies);
+
+    if (language === "ts") {
+      installArgs = installArgs.concat(devDependenciesTS);
+    } else {
+      installArgs = installArgs.concat(devDependencies);
+    }
+
     await executeCommand(installCommand, installArgs, { cwd: root });
     spinner.succeed("DevDependencies installed successfully");
   } catch (error) {
@@ -97,7 +106,8 @@ export const installDevDependencies = async (
 };
 
 export const copyTemplateFiles = async (
-  applicationName: string
+  applicationName: string,
+  language: "js" | "ts"
 ): Promise<void> => {
   const root = path.resolve(applicationName);
 
@@ -106,7 +116,7 @@ export const copyTemplateFiles = async (
   try {
     spinner.start();
     await fs.copy(
-      path.join(__dirname, "template/ts/src"),
+      path.join(__dirname, `template/${language}/src`),
       path.join(root, "/src")
     );
     await fs.copy(
@@ -121,6 +131,12 @@ export const copyTemplateFiles = async (
       path.join(__dirname, "template/gitignore"),
       path.join(root, "/.gitignore")
     );
+    if (language === "js") {
+      await fs.copy(
+        path.join(__dirname, "template/babelrc"),
+        path.join(root, "/.babelrc")
+      );
+    }
     spinner.succeed("Template files copied successfully");
   } catch (error) {
     spinner.fail();
