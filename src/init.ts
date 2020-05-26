@@ -112,6 +112,10 @@ export const copyTemplateFiles = async (
       path.join(__dirname, "template/index.js"),
       path.join(root, "/index.js")
     );
+    await fs.copy(
+      path.join(__dirname, "template/README.md"),
+      path.join(root, "/README.md")
+    );
     spinner.succeed("Template files copied successfully");
   } catch (error) {
     spinner.fail(error);
