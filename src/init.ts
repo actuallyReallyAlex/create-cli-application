@@ -151,3 +151,28 @@ export const createTSConfig = async (
     console.error(error);
   }
 };
+
+export const displaySuccessMessage = (applicationName: string): void => {
+  const root = path.resolve(applicationName);
+
+  console.log();
+  console.log(
+    `${chalk.greenBright("Success!")} Created ${chalk.yellowBright(
+      applicationName
+    )} at ${chalk.yellowBright(root)}`
+  );
+  console.log("Inside that directory, you can run several commands:");
+  console.log();
+  console.log(chalk.cyan(`  npm run build`));
+  console.log("    Creates a local build.");
+  console.log();
+  console.log(chalk.cyan(`  npm start`));
+  console.log("    Starts the application in the terminal.");
+  console.log();
+  console.log("We suggest that you begin by typing:");
+  console.log();
+  console.log(chalk.cyan("  cd"), root);
+  console.log(`  ${chalk.cyan(`npm run build && npm start`)}`);
+  console.log();
+  console.log(chalk.yellowBright("Happy CLI creating!"));
+};
