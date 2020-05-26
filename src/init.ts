@@ -93,3 +93,22 @@ export const installDevDependencies = async (
     console.error(error);
   }
 };
+
+export const copyTemplateFiles = async (
+  applicationName: string
+): Promise<void> => {
+  const root = path.resolve(applicationName);
+
+  let spinner = ora();
+
+  try {
+    await fs.copy(
+      path.join(__dirname, "template/ts/src"),
+      path.join(root, "/src")
+    );
+    spinner.succeed("Template files copied successfully");
+  } catch (error) {
+    spinner.fail(error);
+    console.error(error);
+  }
+};

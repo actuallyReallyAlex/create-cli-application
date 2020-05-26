@@ -2,6 +2,7 @@ import chalk from "chalk";
 import commander from "commander";
 
 import {
+  copyTemplateFiles,
   createProjectDirectory,
   installDependencies,
   installDevDependencies,
@@ -41,6 +42,8 @@ const main = async (): Promise<void> => {
   await installDependencies(applicationName);
 
   await installDevDependencies(applicationName);
+
+  await copyTemplateFiles(applicationName);
 };
 
 export default main;
