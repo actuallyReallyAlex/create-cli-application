@@ -42,4 +42,6 @@ const main = async (): Promise<void> => {
   }
 };
 
+if (process.argv[3] === "start") main();
+
 export default main;

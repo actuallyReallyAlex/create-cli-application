@@ -16,7 +16,7 @@ export const createProjectDirectory = async (
   fs.ensureDirSync(root);
 
   console.log();
-  console.log(`Creating a new React app in ${chalk.yellowBright(root)}.`);
+  console.log(`Creating a new CLI app in ${chalk.yellowBright(root)}.`);
   console.log();
 
   // TODO - Interactive mode to fill in some of these values
@@ -31,7 +31,7 @@ export const createProjectDirectory = async (
     },
     scripts: {
       build: "rimraf build && tsc",
-      start: "node build/index.js",
+      start: "node build/index.js -- start",
       test: 'echo "Error: no test specified" && exit 1',
     },
     keywords: [],
@@ -107,6 +107,10 @@ export const copyTemplateFiles = async (
     await fs.copy(
       path.join(__dirname, "template/ts/src"),
       path.join(root, "/src")
+    );
+    await fs.copy(
+      path.join(__dirname, "template/index.js"),
+      path.join(root, "/index.js")
     );
     spinner.succeed("Template files copied successfully");
   } catch (error) {

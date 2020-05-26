@@ -75,7 +75,7 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
       about: async (state: AppState): Promise<void> => {
         await titleScreen("Sentry Releaser");
         console.log(
-          boxen(chalk.yellow(`Author: `) + "Alex Lee", blankBoxenStyle)
+          boxen(chalk.yellow(`Author: `) + "YOUR NAME", blankBoxenStyle)
         );
 
         console.log("Press any key to return to Main Menu ...");
