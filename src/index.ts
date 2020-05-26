@@ -5,7 +5,7 @@ import * as Sentry from "@sentry/node";
 Sentry.init({
   dsn:
     "https://55c913cc3d394f71ba669fda095698fd@o202486.ingest.sentry.io/5254191",
-  release: "0.2.0",
+  release: "0.3.0",
 });
 
 import {
@@ -24,7 +24,7 @@ const main = async (): Promise<void> => {
     let language: "js" | "ts";
     language = "js";
     const program = new commander.Command("create-cli-application")
-      .version("0.2.0")
+      .version("0.3.0")
       .arguments("<application-name>")
       .usage(`${chalk.yellowBright("<application-name>")} [options]`)
       .action((name) => {
