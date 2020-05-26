@@ -3,7 +3,7 @@
  <img width=256px height=256px src="https://svgshare.com/i/LWJ.svg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">APP NAME</h3>
+<h3 align="center">___APP NAME___</h3>
 
 ---
 

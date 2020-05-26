@@ -144,6 +144,9 @@ export const copyTemplateFiles = async (
         path.join(root, "/.babelrc")
       );
     }
+
+    // * Apply the applicationName to template files
+    
     spinner.succeed("Template files copied successfully");
   } catch (error) {
     spinner.fail();

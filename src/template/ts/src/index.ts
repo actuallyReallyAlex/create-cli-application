@@ -10,7 +10,7 @@ import { AppState } from "./types";
 const main = async (): Promise<void> => {
   const menuActionEmitter = new EventEmitter.EventEmitter();
   menuActionEmitter.on("actionCompleted", async (state: AppState) => {
-    await titleScreen("APP NAME");
+    await titleScreen("___APP NAME___");
     await displayMainMenu(state);
     await interpretMenuAction(state);
   });
@@ -31,7 +31,7 @@ const main = async (): Promise<void> => {
       clear();
     }
 
-    await titleScreen("APP NAME");
+    await titleScreen("___APP NAME___");
     await displayMainMenu(state);
 
     await interpretMenuAction(state);

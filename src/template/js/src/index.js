@@ -9,7 +9,7 @@ import setup from "./setup";
 const main = async () => {
   const menuActionEmitter = new EventEmitter.EventEmitter();
   menuActionEmitter.on("actionCompleted", async (state) => {
-    await titleScreen("APP NAME");
+    await titleScreen("___APP NAME___");
     await displayMainMenu(state);
     await interpretMenuAction(state);
   });
@@ -30,7 +30,7 @@ const main = async () => {
       clear();
     }
 
-    await titleScreen("APP NAME");
+    await titleScreen("___APP NAME___");
     await displayMainMenu(state);
 
     await interpretMenuAction(state);
