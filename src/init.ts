@@ -39,10 +39,10 @@ export const createProjectDirectory = async (
     license: "",
   };
 
-  let spinner = ora();
+  let spinner = ora("Creating Application directory and package.json");
 
   try {
-    spinner.start("Creating Application directory and package.json");
+    spinner.start();
     await fs.writeFile(
       path.join(root, "package.json"),
       JSON.stringify(packageJson, null, 2) + os.EOL
@@ -51,8 +51,8 @@ export const createProjectDirectory = async (
       "Application Directory and package.json created successfully"
     );
   } catch (error) {
-    spinner.fail(error);
-    console.error(error);
+    spinner.fail();
+    throw new Error(error);
   }
 };
 
@@ -61,18 +61,18 @@ export const installDependencies = async (
 ): Promise<void> => {
   const root = path.resolve(applicationName);
 
-  let spinner = ora();
+  let spinner = ora("Installing dependencies");
 
   try {
-    spinner.start("Installing dependencies");
+    spinner.start();
     const installCommand = "npm";
     let installArgs = ["install", "--save"];
     installArgs = installArgs.concat(dependencies);
     await executeCommand(installCommand, installArgs, { cwd: root });
     spinner.succeed("Dependencies installed successfully");
   } catch (error) {
-    spinner.fail(error);
-    console.error(error);
+    spinner.fail();
+    throw new Error(error);
   }
 };
 
@@ -81,18 +81,18 @@ export const installDevDependencies = async (
 ): Promise<void> => {
   const root = path.resolve(applicationName);
 
-  let spinner = ora();
+  let spinner = ora("Installing devDependencies");
 
   try {
-    spinner.start("Installing devDependencies");
+    spinner.start();
     const installCommand = "npm";
     let installArgs = ["install", "--save"];
     installArgs = installArgs.concat(devDependencies);
     await executeCommand(installCommand, installArgs, { cwd: root });
     spinner.succeed("DevDependencies installed successfully");
   } catch (error) {
-    spinner.fail(error);
-    console.error(error);
+    spinner.fail();
+    throw new Error(error);
   }
 };
 
@@ -101,9 +101,10 @@ export const copyTemplateFiles = async (
 ): Promise<void> => {
   const root = path.resolve(applicationName);
 
-  let spinner = ora();
+  let spinner = ora("Copying template files");
 
   try {
+    spinner.start();
     await fs.copy(
       path.join(__dirname, "template/ts/src"),
       path.join(root, "/src")
@@ -116,10 +117,14 @@ export const copyTemplateFiles = async (
       path.join(__dirname, "template/README.md"),
       path.join(root, "/README.md")
     );
+    await fs.copy(
+      path.join(__dirname, "template/gitignore"),
+      path.join(root, "/.gitignore")
+    );
     spinner.succeed("Template files copied successfully");
   } catch (error) {
-    spinner.fail(error);
-    console.error(error);
+    spinner.fail();
+    throw new Error(error);
   }
 };
 
@@ -128,7 +133,7 @@ export const createTSConfig = async (
 ): Promise<void> => {
   const root = path.resolve(applicationName);
 
-  let spinner = ora();
+  let spinner = ora("Creating tsconfig.json");
 
   const tsConfig = {
     compilerOptions: {
@@ -144,15 +149,15 @@ export const createTSConfig = async (
   };
 
   try {
-    spinner.start("Creating tsconfig.json");
+    spinner.start();
     await fs.writeFile(
       path.join(root, "tsconfig.json"),
       JSON.stringify(tsConfig, null, 2) + os.EOL
     );
     spinner.succeed("tsconfig.json created successfully");
   } catch (error) {
-    spinner.fail(error);
-    console.error(error);
+    spinner.fail();
+    throw new Error(error);
   }
 };
 
