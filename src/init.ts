@@ -112,3 +112,36 @@ export const copyTemplateFiles = async (
     console.error(error);
   }
 };
+
+export const createTSConfig = async (
+  applicationName: string
+): Promise<void> => {
+  const root = path.resolve(applicationName);
+
+  let spinner = ora();
+
+  const tsConfig = {
+    compilerOptions: {
+      target: "es5",
+      module: "commonjs",
+      outDir: "./build",
+      strict: true,
+      esModuleInterop: true,
+      skipLibCheck: true,
+      forceConsistentCasingInFileNames: true,
+    },
+    include: ["./src/**/*"],
+  };
+
+  try {
+    spinner.start("Creating tsconfig.json");
+    await fs.writeFile(
+      path.join(root, "tsconfig.json"),
+      JSON.stringify(tsConfig, null, 2) + os.EOL
+    );
+    spinner.succeed("tsconfig.json created successfully");
+  } catch (error) {
+    spinner.fail(error);
+    console.error(error);
+  }
+};

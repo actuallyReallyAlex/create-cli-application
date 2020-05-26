@@ -6,6 +6,7 @@ import {
   createProjectDirectory,
   installDependencies,
   installDevDependencies,
+  createTSConfig,
 } from "./init";
 import { handleIncorrectApplicationName } from "./program";
 
@@ -44,6 +45,8 @@ const main = async (): Promise<void> => {
   await installDevDependencies(applicationName);
 
   await copyTemplateFiles(applicationName);
+
+  await createTSConfig(applicationName);
 };
 
 export default main;
