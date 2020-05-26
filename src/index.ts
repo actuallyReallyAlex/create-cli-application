@@ -112,8 +112,6 @@ const main = async (): Promise<void> => {
     // * Installs dev dependencies
     await installDevDependencies(applicationName, language);
 
-    throw new Error("FAKE ERROR");
-
     // * Copies template files and inserts `applicationName` into the files
     await copyTemplateFiles(applicationName, language);
 
