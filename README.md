@@ -24,11 +24,8 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Deployment](#deployment)
 - [Usage](#usage)
 - [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
@@ -50,6 +47,14 @@ I generally use a template when developing CLI applications for myself. I want t
 ## 🎈 Usage <a name="usage"></a>
 
 `create-cli-application cool-app-name`
+
+### Changing the Source Language
+
+By deafault, **create-cli-application** will create your application as a JavaScript project. You can pass the `--typescript` flag to create a TypeScript project instead.
+
+`create-cli-application cool-app-name --typescript`
+
+Want support for an additional language? Feel free to open a [new issue](https://github.com/alexlee-dev/create-cli-application/issues/new).
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
