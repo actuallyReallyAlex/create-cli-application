@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.0] - 2020-05-26
 
+### ✏️ Application Name in Template Files
+
 ### Added
 
 - Replace generic "APP NAME" in template files with applicationName value
