@@ -1,5 +1,11 @@
 import chalk from "chalk";
 import commander from "commander";
+import * as Sentry from "@sentry/node";
+
+Sentry.init({
+  dsn:
+    "https://55c913cc3d394f71ba669fda095698fd@o202486.ingest.sentry.io/5254191",
+});
 
 import {
   copyTemplateFiles,
@@ -54,6 +60,7 @@ const main = async (): Promise<void> => {
   } catch (error) {
     // TODO - Cleanup
     console.error(error);
+    throw new Error(error);
   }
 };
 

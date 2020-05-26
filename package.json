@@ -43,6 +43,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "@sentry/node": "^5.15.5",
     "boxen": "^4.2.0",
     "chalk": "^4.0.0",
     "clear": "^0.1.0",
