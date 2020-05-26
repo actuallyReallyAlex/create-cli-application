@@ -7,12 +7,19 @@ import path from "path";
 import { dependencies, devDependencies, devDependenciesTS } from "./constants";
 import { executeCommand } from "./util";
 
+/**
+ * Creates a project directory and a package.json inside that new directory.
+ * @param applicationName Name of application.
+ * @param language Language of application
+ */
 export const createProjectDirectory = async (
   applicationName: string,
   language: "js" | "ts"
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
+  // ? Needed?
   fs.ensureDirSync(root);
 
   console.log();
@@ -51,6 +58,7 @@ export const createProjectDirectory = async (
 
   try {
     spinner.start();
+    // * Create package.json
     await fs.writeFile(
       path.join(root, "package.json"),
       JSON.stringify(packageJson, null, 2) + os.EOL
@@ -64,9 +72,14 @@ export const createProjectDirectory = async (
   }
 };
 
+/**
+ * Installs dependencies.
+ * @param applicationName Name of application.
+ */
 export const installDependencies = async (
   applicationName: string
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   let spinner = ora("Installing dependencies");
@@ -76,6 +89,7 @@ export const installDependencies = async (
     const installCommand = "npm";
     let installArgs = ["install", "--save"];
     installArgs = installArgs.concat(dependencies);
+    // * Create a process that installs the dependencies
     await executeCommand(installCommand, installArgs, { cwd: root });
     spinner.succeed("Dependencies installed successfully");
   } catch (error) {
@@ -84,10 +98,16 @@ export const installDependencies = async (
   }
 };
 
+/**
+ * Installs dev dependencies.
+ * @param applicationName Name of application.
+ * @param language Language of application.
+ */
 export const installDevDependencies = async (
   applicationName: string,
   language: "js" | "ts"
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   let spinner = ora("Installing devDependencies");
@@ -104,6 +124,7 @@ export const installDevDependencies = async (
       installArgs = installArgs.concat(devDependencies);
     }
 
+    // * Creates a process that installs the dev dependencies
     await executeCommand(installCommand, installArgs, { cwd: root });
     spinner.succeed("DevDependencies installed successfully");
   } catch (error) {
@@ -112,16 +133,24 @@ export const installDevDependencies = async (
   }
 };
 
+// TODO - Refactor this function :)
+/**
+ * Copies template files and inserts values into the files.
+ * @param applicationName Name of application.
+ * @param language Language of application.
+ */
 export const copyTemplateFiles = async (
   applicationName: string,
   language: "js" | "ts"
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   let spinner = ora("Copying template files");
 
   try {
     spinner.start();
+    // * Copy template files based on language
     await fs.copy(
       path.join(__dirname, `template/${language}/src`),
       path.join(root, "/src")
@@ -252,13 +281,19 @@ export const copyTemplateFiles = async (
   }
 };
 
+/**
+ * Creates a tsconfig.json file in the application directory.
+ * @param applicationName Name of application.
+ */
 export const createTSConfig = async (
   applicationName: string
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   let spinner = ora("Creating tsconfig.json");
 
+  // * Basic tsconfig needed to build the application
   const tsConfig = {
     compilerOptions: {
       target: "es5",
@@ -274,6 +309,7 @@ export const createTSConfig = async (
 
   try {
     spinner.start();
+    // * Create tsconfig.json file
     await fs.writeFile(
       path.join(root, "tsconfig.json"),
       JSON.stringify(tsConfig, null, 2) + os.EOL
@@ -285,7 +321,12 @@ export const createTSConfig = async (
   }
 };
 
+/**
+ * Display a success message to the user.
+ * @param applicationName Name of application.
+ */
 export const displaySuccessMessage = (applicationName: string): void => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   console.log();

@@ -1,5 +1,11 @@
 import { spawn } from "child_process";
 
+/**
+ * Executes a command in a spawned process.
+ * @param command Command to execute in the process.
+ * @param args Additional arguments to attach to the command.
+ * @param options Optional options object to pass along.
+ */
 export const executeCommand = async (
   command: string,
   args?: string[],

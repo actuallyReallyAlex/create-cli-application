@@ -3,6 +3,9 @@ import chalk from "chalk";
 import commander from "commander";
 import inquirer from "inquirer";
 
+/**
+ * Initialize Sentry
+ */
 Sentry.init({
   dsn:
     "https://55c913cc3d394f71ba669fda095698fd@o202486.ingest.sentry.io/5254191",
@@ -19,11 +22,20 @@ import {
 } from "./init";
 import { handleIncorrectApplicationName } from "./program";
 
+/**
+ * Main CLI Program
+ */
 const main = async (): Promise<void> => {
   try {
+    // * Used to set the directory, application name, and inserted into templates
     let applicationName;
     let language: "js" | "ts";
+    // * Default language is JavaScript
     language = "js";
+
+    /**
+     * The program that parses the initial user input
+     */
     const program = new commander.Command("create-cli-application")
       .version("0.4.0")
       .arguments("<application-name>")
@@ -55,12 +67,15 @@ const main = async (): Promise<void> => {
       .parse(process.argv);
 
     // TODO - Catch names like "my.app.name" or "my app name"
+
+    // * Application Name must exist, and not consist of illegal characters
     if (applicationName === "." || !applicationName) {
       return handleIncorrectApplicationName(program);
     }
 
     if (program.interactive) {
       // * Interactive walk-thru
+
       // * Language
       const answers = await inquirer.prompt([
         {
@@ -76,23 +91,32 @@ const main = async (): Promise<void> => {
       const languageChoice: "js" | "ts" = answers.language;
       language = languageChoice;
 
+      // TODO - Author Name
       // TODO - Compiler Choice (Babel vs. other)
       // TODO - Add Prettier
       // TODO - Add ESLint / Other Linter
       // TODO - Menu Color Option
     }
+
+    // * Set language to 'ts' if user passed --typescript flag
     if (program.typescript && !program.interactive) language = "ts";
 
+    // * Creates a project directory and package.json
     await createProjectDirectory(applicationName, language);
 
+    // * Installs dependencies
     await installDependencies(applicationName);
 
+    // * Installs dev dependencies
     await installDevDependencies(applicationName, language);
 
+    // * Copies template files and inserts `applicationName` into the files
     await copyTemplateFiles(applicationName, language);
 
+    // * Creates a tsconfig.json file
     if (language === "ts") await createTSConfig(applicationName);
 
+    // * Displays a success message to the user
     displaySuccessMessage(applicationName);
   } catch (error) {
     // TODO - Cleanup
