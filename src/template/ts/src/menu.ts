@@ -73,7 +73,7 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
     }
     const actions = {
       about: async (state: AppState): Promise<void> => {
-        await titleScreen("Sentry Releaser");
+        await titleScreen("APP NAME");
         console.log(
           boxen(chalk.yellow(`Author: `) + "YOUR NAME", blankBoxenStyle)
         );
@@ -82,9 +82,33 @@ export const interpretMenuAction = async (state: AppState): Promise<void> => {
         await keypress();
         state.menuActionEmitter.emit("actionCompleted", state);
       },
-      option1: (state: AppState): void => process.exit(),
-      option2: (state: AppState): void => process.exit(),
-      option3: (state: AppState): void => process.exit(),
+      option1: async (state: AppState): Promise<void> => {
+        await titleScreen("APP NAME");
+        console.log("Option 1 Logic would take place here :)");
+        console.log("");
+
+        console.log("Press any key to return to Main Menu ...");
+        await keypress();
+        state.menuActionEmitter.emit("actionCompleted", state);
+      },
+      option2: async (state: AppState): Promise<void> => {
+        await titleScreen("APP NAME");
+        console.log("Option 2 Logic would take place here :)");
+        console.log("");
+
+        console.log("Press any key to return to Main Menu ...");
+        await keypress();
+        state.menuActionEmitter.emit("actionCompleted", state);
+      },
+      option3: async (state: AppState): Promise<void> => {
+        await titleScreen("APP NAME");
+        console.log("Option 3 Logic would take place here :)");
+        console.log("");
+
+        console.log("Press any key to return to Main Menu ...");
+        await keypress();
+        state.menuActionEmitter.emit("actionCompleted", state);
+      },
       exit: (state: AppState): void => process.exit(),
     };
 
