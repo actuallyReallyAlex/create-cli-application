@@ -31,6 +31,10 @@ export const executeCommand = async (
     });
   });
 
+/**
+ * Clean up created directory and files if error occurs.
+ * @param applicationName Name of application.
+ */
 export const cleanupError = async (
   applicationName: string | undefined
 ): Promise<void> => {
@@ -46,4 +50,27 @@ export const cleanupError = async (
   } catch (error) {
     throw new Error(error);
   }
+};
+
+/**
+ * Replaces a token in a list of template files with the appropriate values.
+ * @param files Array of files to replace values in.
+ * @param replaceToken Regex used to find the values in the template file.
+ * @param applicationName Name of application.
+ * @param authorName Name of author.
+ */
+export const valueReplacer = (
+  files: string[],
+  replaceToken: any,
+  applicationName: string,
+  authorName: string
+) => {
+  return files.map(async (filePath: string) => {
+    const file = await fs.readFile(filePath, "utf-8");
+    let newFileContent = file.replace(replaceToken, applicationName);
+    if (filePath === "/src/menu.js" || filePath === "/src/menu.ts")
+      newFileContent = newFileContent.replace(replaceToken, authorName);
+    await fs.writeFile(filePath, newFileContent, "utf8");
+    return;
+  });
 };

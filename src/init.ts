@@ -5,7 +5,7 @@ import os from "os";
 import path from "path";
 
 import { dependencies, devDependencies, devDependenciesTS } from "./constants";
-import { executeCommand } from "./util";
+import { executeCommand, valueReplacer } from "./util";
 
 /**
  * Creates a project directory and a package.json inside that new directory.
@@ -131,16 +131,14 @@ export const installDevDependencies = async (
   }
 };
 
-// TODO - Refactor this function :)
 /**
- * Copies template files and inserts values into the files.
+ * Copies template files.
  * @param applicationName Name of application.
  * @param language Language of application.
  */
 export const copyTemplateFiles = async (
   applicationName: string,
-  language: "js" | "ts",
-  authorName: string
+  language: "js" | "ts"
 ): Promise<void> => {
   // * Application Directory
   const root = path.resolve(applicationName);
@@ -149,23 +147,36 @@ export const copyTemplateFiles = async (
 
   try {
     spinner.start();
-    // * Copy template files based on language
-    await fs.copy(
-      path.join(__dirname, `template/${language}/src`),
-      path.join(root, "/src")
+    const requiredFilesToCopy = [
+      {
+        src: path.join(__dirname, `template/${language}/src`),
+        dest: path.join(root, "/src"),
+      },
+      {
+        src: path.join(__dirname, "template/index.js"),
+        dest: path.join(root, "/index.js"),
+      },
+      {
+        src: path.join(__dirname, "template/README.md"),
+        dest: path.join(root, "/README.md"),
+      },
+      {
+        src: path.join(__dirname, "template/gitignore"),
+        dest: path.join(root, "/.gitignore"),
+      },
+    ];
+
+    // * Copy Template Files
+    await Promise.all(
+      requiredFilesToCopy.map(
+        async (fileInfo: { src: string; dest: string }) => {
+          await fs.copy(fileInfo.src, fileInfo.dest);
+          return;
+        }
+      )
     );
-    await fs.copy(
-      path.join(__dirname, "template/index.js"),
-      path.join(root, "/index.js")
-    );
-    await fs.copy(
-      path.join(__dirname, "template/README.md"),
-      path.join(root, "/README.md")
-    );
-    await fs.copy(
-      path.join(__dirname, "template/gitignore"),
-      path.join(root, "/.gitignore")
-    );
+
+    // * Copy .babelrc for JS projects
     if (language === "js") {
       await fs.copy(
         path.join(__dirname, "template/babelrc"),
@@ -173,115 +184,58 @@ export const copyTemplateFiles = async (
       );
     }
 
-    // * Apply the applicationName to template files
-    const readmeFile = await fs.readFile(path.join(root, "README.md"), "utf-8");
-    const newReadmeContent = readmeFile.replace(
-      /___APP NAME___/gm,
-      applicationName
-    );
-    await fs.writeFile(path.join(root, "README.md"), newReadmeContent, "utf8");
-
-    if (language === "js") {
-      // * src/index.js
-      const indexFile = await fs.readFile(
-        path.join(root, "/src/index.js"),
-        "utf-8"
-      );
-      const newIndexFileContent = indexFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/index.js"),
-        newIndexFileContent,
-        "utf8"
-      );
-
-      // * src/menu.js
-      const menuFile = await fs.readFile(
-        path.join(root, "/src/menu.js"),
-        "utf-8"
-      );
-      let newMenuFileContent = menuFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      newMenuFileContent = newMenuFileContent.replace(
-        /___AUTHOR NAME___/gm,
-        authorName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/menu.js"),
-        newMenuFileContent,
-        "utf8"
-      );
-
-      // * src/setup.js
-      const setupFile = await fs.readFile(
-        path.join(root, "/src/setup.js"),
-        "utf-8"
-      );
-      const newSetupFileContent = setupFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/setup.js"),
-        newSetupFileContent,
-        "utf8"
-      );
-    } else if (language === "ts") {
-      // * src/index.ts
-      const indexFile = await fs.readFile(
-        path.join(root, "/src/index.ts"),
-        "utf-8"
-      );
-      const newIndexFileContent = indexFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/index.ts"),
-        newIndexFileContent,
-        "utf8"
-      );
-
-      // * src/menu.ts
-      const menuFile = await fs.readFile(
-        path.join(root, "/src/menu.ts"),
-        "utf-8"
-      );
-      let newMenuFileContent = menuFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      newMenuFileContent = newMenuFileContent.replace(
-        /___AUTHOR NAME___/gm,
-        authorName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/menu.ts"),
-        newMenuFileContent,
-        "utf8"
-      );
-
-      // * src/setup.ts
-      const setupFile = await fs.readFile(
-        path.join(root, "/src/setup.ts"),
-        "utf-8"
-      );
-      const newSetupFileContent = setupFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/setup.ts"),
-        newSetupFileContent,
-        "utf8"
-      );
-    }
-
     spinner.succeed("Template files copied successfully");
+  } catch (error) {
+    spinner.fail();
+    throw new Error(error);
+  }
+};
+
+/**
+ * Replaces template files placeholder values with real values for the application.
+ * @param applicationName Name of application.
+ * @param language Language of application.
+ * @param authorName Name of author.
+ */
+export const replaceTemplateValues = async (
+  applicationName: string,
+  language: "js" | "ts",
+  authorName: string
+): Promise<void> => {
+  // * Application Directory
+  const root = path.resolve(applicationName);
+
+  let spinner = ora("Replacing values in template files");
+  try {
+    spinner.start();
+
+    const jsFilesToRewrite = [
+      path.join(root, "README.md"),
+      path.join(root, "/src/index.js"),
+      path.join(root, "/src/menu.js"),
+      path.join(root, "/src/setup.js"),
+    ];
+    const tsFilesToRewrite = [
+      path.join(root, "README.md"),
+      path.join(root, "/src/index.ts"),
+      path.join(root, "/src/menu.ts"),
+      path.join(root, "/src/setup.ts"),
+    ];
+
+    let replaceFiles = jsFilesToRewrite;
+
+    if (language === "ts") replaceFiles = tsFilesToRewrite;
+
+    // * Apply real values to template files
+    await Promise.all(
+      valueReplacer(
+        replaceFiles,
+        /___APP NAME___/gm,
+        applicationName,
+        authorName
+      )
+    );
+    spinner.succeed("Values in template files replaced successfully");
   } catch (error) {
     spinner.fail();
     throw new Error(error);

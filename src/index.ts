@@ -19,6 +19,7 @@ import {
   installDevDependencies,
   createTSConfig,
   displaySuccessMessage,
+  replaceTemplateValues,
 } from "./init";
 import { handleIncorrectApplicationName } from "./program";
 import { cleanupError } from "./util";
@@ -124,8 +125,11 @@ const main = async (): Promise<void> => {
     // * Installs dev dependencies
     await installDevDependencies(applicationName, language);
 
-    // * Copies template files and inserts `applicationName` into the files
-    await copyTemplateFiles(applicationName, language, authorName);
+    // * Copies template files
+    await copyTemplateFiles(applicationName, language);
+
+    // * Replaces template files placeholder values with real values for the application.
+    await replaceTemplateValues(applicationName, language, authorName);
 
     // * Creates a tsconfig.json file
     if (language === "ts") await createTSConfig(applicationName);
