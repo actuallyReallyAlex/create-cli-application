@@ -68,6 +68,7 @@ Want support for an additional language? Feel free to open a [new issue](https:/
 - [ora](https://github.com/sindresorhus/ora) - Elegant terminal spinner.
 - [pickitt](https://pickitt.netlify.com/) - When you need a computer to just pick it, reach for Pickitt!
 - [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to plain JavaScript.
+- [validate-npm-package-name](https://github.com/npm/validate-npm-package-name) - Is the given string an acceptable npm package name?
 
 ## ✍️ Authors <a name = "authors"></a>
 

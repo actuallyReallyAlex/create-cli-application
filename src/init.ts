@@ -5,14 +5,21 @@ import os from "os";
 import path from "path";
 
 import { dependencies, devDependencies, devDependenciesTS } from "./constants";
-import { executeCommand } from "./util";
+import { executeCommand, valueReplacer } from "./util";
 
+/**
+ * Creates a project directory and a package.json inside that new directory.
+ * @param applicationName Name of application.
+ * @param language Language of application
+ */
 export const createProjectDirectory = async (
   applicationName: string,
   language: "js" | "ts"
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
+  // ? Needed?
   fs.ensureDirSync(root);
 
   console.log();
@@ -26,8 +33,6 @@ export const createProjectDirectory = async (
     }`
   );
   console.log();
-
-  // TODO - Interactive mode to fill in some of these values
 
   const packageJson = {
     name: applicationName,
@@ -51,6 +56,7 @@ export const createProjectDirectory = async (
 
   try {
     spinner.start();
+    // * Create package.json
     await fs.writeFile(
       path.join(root, "package.json"),
       JSON.stringify(packageJson, null, 2) + os.EOL
@@ -64,9 +70,14 @@ export const createProjectDirectory = async (
   }
 };
 
+/**
+ * Installs dependencies.
+ * @param applicationName Name of application.
+ */
 export const installDependencies = async (
   applicationName: string
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   let spinner = ora("Installing dependencies");
@@ -76,6 +87,7 @@ export const installDependencies = async (
     const installCommand = "npm";
     let installArgs = ["install", "--save"];
     installArgs = installArgs.concat(dependencies);
+    // * Create a process that installs the dependencies
     await executeCommand(installCommand, installArgs, { cwd: root });
     spinner.succeed("Dependencies installed successfully");
   } catch (error) {
@@ -84,10 +96,16 @@ export const installDependencies = async (
   }
 };
 
+/**
+ * Installs dev dependencies.
+ * @param applicationName Name of application.
+ * @param language Language of application.
+ */
 export const installDevDependencies = async (
   applicationName: string,
   language: "js" | "ts"
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   let spinner = ora("Installing devDependencies");
@@ -104,6 +122,7 @@ export const installDevDependencies = async (
       installArgs = installArgs.concat(devDependencies);
     }
 
+    // * Creates a process that installs the dev dependencies
     await executeCommand(installCommand, installArgs, { cwd: root });
     spinner.succeed("DevDependencies installed successfully");
   } catch (error) {
@@ -112,136 +131,56 @@ export const installDevDependencies = async (
   }
 };
 
+/**
+ * Copies template files.
+ * @param applicationName Name of application.
+ * @param language Language of application.
+ */
 export const copyTemplateFiles = async (
   applicationName: string,
   language: "js" | "ts"
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   let spinner = ora("Copying template files");
 
   try {
     spinner.start();
-    await fs.copy(
-      path.join(__dirname, `template/${language}/src`),
-      path.join(root, "/src")
+    const requiredFilesToCopy = [
+      {
+        src: path.join(__dirname, `template/${language}/src`),
+        dest: path.join(root, "/src"),
+      },
+      {
+        src: path.join(__dirname, "template/index.js"),
+        dest: path.join(root, "/index.js"),
+      },
+      {
+        src: path.join(__dirname, "template/README.md"),
+        dest: path.join(root, "/README.md"),
+      },
+      {
+        src: path.join(__dirname, "template/gitignore"),
+        dest: path.join(root, "/.gitignore"),
+      },
+    ];
+
+    // * Copy Template Files
+    await Promise.all(
+      requiredFilesToCopy.map(
+        async (fileInfo: { src: string; dest: string }) => {
+          await fs.copy(fileInfo.src, fileInfo.dest);
+          return;
+        }
+      )
     );
-    await fs.copy(
-      path.join(__dirname, "template/index.js"),
-      path.join(root, "/index.js")
-    );
-    await fs.copy(
-      path.join(__dirname, "template/README.md"),
-      path.join(root, "/README.md")
-    );
-    await fs.copy(
-      path.join(__dirname, "template/gitignore"),
-      path.join(root, "/.gitignore")
-    );
+
+    // * Copy .babelrc for JS projects
     if (language === "js") {
       await fs.copy(
         path.join(__dirname, "template/babelrc"),
         path.join(root, "/.babelrc")
-      );
-    }
-
-    // * Apply the applicationName to template files
-    const readmeFile = await fs.readFile(path.join(root, "README.md"), "utf-8");
-    const newReadmeContent = readmeFile.replace(
-      /___APP NAME___/gm,
-      applicationName
-    );
-    await fs.writeFile(path.join(root, "README.md"), newReadmeContent, "utf8");
-
-    if (language === "js") {
-      // * src/index.js
-      const indexFile = await fs.readFile(
-        path.join(root, "/src/index.js"),
-        "utf-8"
-      );
-      const newIndexFileContent = indexFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/index.js"),
-        newIndexFileContent,
-        "utf8"
-      );
-
-      // * src/menu.js
-      const menuFile = await fs.readFile(
-        path.join(root, "/src/menu.js"),
-        "utf-8"
-      );
-      const newMenuFileContent = menuFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/menu.js"),
-        newMenuFileContent,
-        "utf8"
-      );
-
-      // * src/setup.js
-      const setupFile = await fs.readFile(
-        path.join(root, "/src/setup.js"),
-        "utf-8"
-      );
-      const newSetupFileContent = setupFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/setup.js"),
-        newSetupFileContent,
-        "utf8"
-      );
-    } else if (language === "ts") {
-      // * src/index.ts
-      const indexFile = await fs.readFile(
-        path.join(root, "/src/index.ts"),
-        "utf-8"
-      );
-      const newIndexFileContent = indexFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/index.ts"),
-        newIndexFileContent,
-        "utf8"
-      );
-
-      // * src/menu.ts
-      const menuFile = await fs.readFile(
-        path.join(root, "/src/menu.ts"),
-        "utf-8"
-      );
-      const newMenuFileContent = menuFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/menu.ts"),
-        newMenuFileContent,
-        "utf8"
-      );
-
-      // * src/setup.ts
-      const setupFile = await fs.readFile(
-        path.join(root, "/src/setup.ts"),
-        "utf-8"
-      );
-      const newSetupFileContent = setupFile.replace(
-        /___APP NAME___/gm,
-        applicationName
-      );
-      await fs.writeFile(
-        path.join(root, "/src/setup.ts"),
-        newSetupFileContent,
-        "utf8"
       );
     }
 
@@ -252,13 +191,70 @@ export const copyTemplateFiles = async (
   }
 };
 
+/**
+ * Replaces template files placeholder values with real values for the application.
+ * @param applicationName Name of application.
+ * @param language Language of application.
+ * @param authorName Name of author.
+ */
+export const replaceTemplateValues = async (
+  applicationName: string,
+  language: "js" | "ts",
+  authorName: string
+): Promise<void> => {
+  // * Application Directory
+  const root = path.resolve(applicationName);
+
+  let spinner = ora("Replacing values in template files");
+  try {
+    spinner.start();
+
+    const jsFilesToRewrite = [
+      path.join(root, "README.md"),
+      path.join(root, "/src/index.js"),
+      path.join(root, "/src/menu.js"),
+      path.join(root, "/src/setup.js"),
+    ];
+    const tsFilesToRewrite = [
+      path.join(root, "README.md"),
+      path.join(root, "/src/index.ts"),
+      path.join(root, "/src/menu.ts"),
+      path.join(root, "/src/setup.ts"),
+    ];
+
+    let replaceFiles = jsFilesToRewrite;
+
+    if (language === "ts") replaceFiles = tsFilesToRewrite;
+
+    // * Apply real values to template files
+    await Promise.all(
+      valueReplacer(
+        replaceFiles,
+        /___APP NAME___/gm,
+        applicationName,
+        authorName
+      )
+    );
+    spinner.succeed("Values in template files replaced successfully");
+  } catch (error) {
+    spinner.fail();
+    throw new Error(error);
+  }
+};
+
+/**
+ * Creates a tsconfig.json file in the application directory.
+ * @param applicationName Name of application.
+ */
 export const createTSConfig = async (
   applicationName: string
 ): Promise<void> => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   let spinner = ora("Creating tsconfig.json");
 
+  // * Basic tsconfig needed to build the application
   const tsConfig = {
     compilerOptions: {
       target: "es5",
@@ -274,6 +270,7 @@ export const createTSConfig = async (
 
   try {
     spinner.start();
+    // * Create tsconfig.json file
     await fs.writeFile(
       path.join(root, "tsconfig.json"),
       JSON.stringify(tsConfig, null, 2) + os.EOL
@@ -285,7 +282,12 @@ export const createTSConfig = async (
   }
 };
 
+/**
+ * Display a success message to the user.
+ * @param applicationName Name of application.
+ */
 export const displaySuccessMessage = (applicationName: string): void => {
+  // * Application Directory
   const root = path.resolve(applicationName);
 
   console.log();

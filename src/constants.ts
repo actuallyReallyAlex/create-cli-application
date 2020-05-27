@@ -1,3 +1,6 @@
+/**
+ * These dependencies are required for the cli application regardless of language.
+ */
 export const dependencies = [
   "boxen",
   "chalk",
@@ -7,6 +10,9 @@ export const dependencies = [
   "pickitt",
 ];
 
+/**
+ * These dev dependencies are for JavaScript projects.
+ */
 export const devDependencies = [
   "@babel/core",
   "@babel/cli",
@@ -15,6 +21,9 @@ export const devDependencies = [
   "@babel/runtime",
 ];
 
+/**
+ * These dev dependencies are for TypeScript projects.
+ */
 export const devDependenciesTS = [
   "@types/clear",
   "@types/configstore",

@@ -1,6 +1,10 @@
 import chalk from "chalk";
 import commander from "commander";
 
+/**
+ * Handles an incorrectly named application.
+ * @param program Program parsing user input.
+ */
 export const handleIncorrectApplicationName = (program: commander.Command) => {
   console.error("\nPlease specify the name of your application:");
   console.log(
@@ -13,5 +17,6 @@ export const handleIncorrectApplicationName = (program: commander.Command) => {
   console.log(
     `Run ${chalk.cyan(`${program.name()} --help`)} to see all options.`
   );
+  // * Exit the program
   process.exit(1);
 };

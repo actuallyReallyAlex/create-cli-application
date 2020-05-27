@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2020-05-27
+
+### ✨ Interactivity
+
+### Added
+
+- Interactive option. Use the flag `--interactive` to use this mode
+- Comments :)
+- Cleanup on global error
+- Option for Author Name
+- Validation of application name according to NPM conventions
+
+### Changed
+
+- Refactored `copyTemplateFiles()`
+
+### Removed
+
+### Fixed
+
 ## [0.3.0] - 2020-05-26
 
 ### ✏️ Application Name in Template Files
