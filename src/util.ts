@@ -70,8 +70,11 @@ export const valueReplacer = (
   return files.map(async (filePath: string) => {
     const file = await fs.readFile(filePath, "utf-8");
     let newFileContent = file.replace(replaceToken, applicationName);
-    if (filePath === "/src/menu.js" || filePath === "/src/menu.ts")
-      newFileContent = newFileContent.replace(replaceToken, authorName);
+    if (filePath.includes("menu"))
+      newFileContent = newFileContent.replace(
+        /___AUTHOR NAME___/gm,
+        authorName
+      );
     await fs.writeFile(filePath, newFileContent, "utf8");
     return;
   });

@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `___AUTHOR NAME___` not being overwritten in template during interactive mode
+
 ## [0.4.0] - 2020-05-27
 
 ### ✨ Interactivity
