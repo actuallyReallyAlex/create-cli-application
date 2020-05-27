@@ -22,7 +22,7 @@ import {
   replaceTemplateValues,
 } from "./init";
 import { handleIncorrectApplicationName } from "./program";
-import { cleanupError } from "./util";
+import { cleanupError, validateApplicationName } from "./util";
 
 /**
  * Main CLI Program
@@ -70,12 +70,9 @@ const main = async (): Promise<void> => {
       })
       .parse(process.argv);
 
-    // TODO - Catch names like "my.app.name" or "my app name"
-
     // * Application Name must exist, and not consist of illegal characters
-    if (applicationName === "." || !applicationName) {
-      return handleIncorrectApplicationName(program);
-    }
+    validateApplicationName(applicationName);
+    if (!applicationName) return;
 
     if (program.interactive) {
       // * Interactive walk-thru
