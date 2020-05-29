@@ -1,6 +1,6 @@
 {
   "name": "create-cli-application",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A bootstrapper for creating a cli application with Node.",
   "bin": {
     "create-cli-application": "./index.js"
