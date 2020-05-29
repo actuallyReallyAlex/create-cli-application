@@ -113,7 +113,7 @@ export const installDevDependencies = async (
   try {
     spinner.start();
     const installCommand = "npm";
-    let installArgs = ["install", "--save"];
+    let installArgs = ["install", "--save-dev"];
     installArgs = installArgs.concat(devDependencies);
 
     if (language === "ts") {
