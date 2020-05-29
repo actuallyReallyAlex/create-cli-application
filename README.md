@@ -20,6 +20,8 @@
     <br> 
 </p>
 
+![Example of create-cli-application running](https://res.cloudinary.com/alexlee-dev/image/upload/v1590711256/create-cli-application/example.gif)
+
 ## 📝 Table of Contents
 
 - [About](#about)
@@ -56,6 +58,12 @@ By deafault, **create-cli-application** will create your application as a JavaSc
 
 Want support for an additional language? Feel free to open a [new issue](https://github.com/alexlee-dev/create-cli-application/issues/new).
 
+### Interactive Mode
+
+You can choose to use the application in an interactive mode by passing the flag `--interactive`.
+
+![Interactive Mode Example](https://res.cloudinary.com/alexlee-dev/image/upload/v1590763194/create-cli-application/interactive.gif)
+
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [@sentry/node](https://sentry.io/welcome/) - Sentry is cross-platform application monitoring, with a focus on error reporting.
@@ -68,11 +76,19 @@ Want support for an additional language? Feel free to open a [new issue](https:/
 - [ora](https://github.com/sindresorhus/ora) - Elegant terminal spinner.
 - [pickitt](https://pickitt.netlify.com/) - When you need a computer to just pick it, reach for Pickitt!
 - [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to plain JavaScript.
+- [update-notifier](https://github.com/yeoman/update-notifier) - Update notifications for your CLI app.
 - [validate-npm-package-name](https://github.com/npm/validate-npm-package-name) - Is the given string an acceptable npm package name?
 
 ## ✍️ Authors <a name = "authors"></a>
 
 - [Alex Lee](https://github.com/alexlee-dev) - Application Developer
+
+## 🚀 Additional Features to Be Added
+
+- Compiler Choice
+- Formatter Choice
+- Linter Choice
+- Menu Styling
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 

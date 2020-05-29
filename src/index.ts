@@ -2,6 +2,7 @@ import * as Sentry from "@sentry/node";
 import chalk from "chalk";
 import commander from "commander";
 import inquirer from "inquirer";
+import updateNotifier from "update-notifier";
 
 /**
  * Initialize Sentry
@@ -9,7 +10,7 @@ import inquirer from "inquirer";
 Sentry.init({
   dsn:
     "https://55c913cc3d394f71ba669fda095698fd@o202486.ingest.sentry.io/5254191",
-  release: "0.4.0",
+  release: "0.5.0",
 });
 
 import {
@@ -41,7 +42,7 @@ const main = async (): Promise<void> => {
      * The program that parses the initial user input
      */
     const program = new commander.Command("create-cli-application")
-      .version("0.4.0")
+      .version("0.5.0")
       .arguments("<application-name>")
       .usage(`${chalk.yellowBright("<application-name>")} [options]`)
       .action((name) => {
@@ -133,6 +134,13 @@ const main = async (): Promise<void> => {
 
     // * Displays a success message to the user
     displaySuccessMessage(applicationName);
+
+    updateNotifier({
+      pkg: {
+        name: "create-cli-application",
+        version: "0.5.0",
+      },
+    }).notify();
   } catch (error) {
     await cleanupError(applicationName);
     console.error(error);
