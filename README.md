@@ -20,6 +20,8 @@
     <br> 
 </p>
 
+![Example of create-cli-application running](https://res.cloudinary.com/alexlee-dev/image/upload/v1590711256/create-cli-application/example.gif)
+
 ## 📝 Table of Contents
 
 - [About](#about)
@@ -68,6 +70,7 @@ Want support for an additional language? Feel free to open a [new issue](https:/
 - [ora](https://github.com/sindresorhus/ora) - Elegant terminal spinner.
 - [pickitt](https://pickitt.netlify.com/) - When you need a computer to just pick it, reach for Pickitt!
 - [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to plain JavaScript.
+- [update-notifier](https://github.com/yeoman/update-notifier) - Update notifications for your CLI app.
 - [validate-npm-package-name](https://github.com/npm/validate-npm-package-name) - Is the given string an acceptable npm package name?
 
 ## ✍️ Authors <a name = "authors"></a>

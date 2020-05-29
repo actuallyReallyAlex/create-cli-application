@@ -2,6 +2,7 @@ import * as Sentry from "@sentry/node";
 import chalk from "chalk";
 import commander from "commander";
 import inquirer from "inquirer";
+import updateNotifier from "update-notifier";
 
 /**
  * Initialize Sentry
@@ -133,6 +134,13 @@ const main = async (): Promise<void> => {
 
     // * Displays a success message to the user
     displaySuccessMessage(applicationName);
+
+    updateNotifier({
+      pkg: {
+        name: "create-cli-application",
+        version: "0.5.0",
+      },
+    }).notify();
   } catch (error) {
     await cleanupError(applicationName);
     console.error(error);

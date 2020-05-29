@@ -1,0 +1,362 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 100
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 25
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: create-cli-application
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 100
+    content: c
+  - delay: 100
+    content: r
+  - delay: 100
+    content: e
+  - delay: 100
+    content: a
+  - delay: 100
+    content: t
+  - delay: 100
+    content: e
+  - delay: 100
+    content: "-"
+  - delay: 100
+    content: c
+  - delay: 100
+    content: l
+  - delay: 100
+    content: i
+  - delay: 100
+    content: "-"
+  - delay: 100
+    content: a
+  - delay: 100
+    content: p
+  - delay: 100
+    content: p
+  - delay: 100
+    content: l
+  - delay: 100
+    content: i
+  - delay: 100
+    content: c
+  - delay: 100
+    content: a
+  - delay: 100
+    content: t
+  - delay: 100
+    content: i
+  - delay: 100
+    content: o
+  - delay: 100
+    content: "n"
+  - delay: 100
+    content: " "
+  - delay: 100
+    content: c
+  - delay: 100
+    content: o
+  - delay: 100
+    content: o
+  - delay: 100
+    content: l
+  - delay: 100
+    content: "-"
+  - delay: 100
+    content: a
+  - delay: 100
+    content: p
+  - delay: 100
+    content: p
+  - delay: 100
+    content: "\r\n"
+  - delay: 500
+    content: "\r\nCreating a new CLI app in \e[93m/cool-app\e[39m.\r\n\r\nSource Language: \e[93mJavaScript\e[39m\r\n\r\n\e[?25l\e[36m⠋\e[39m Creating Application directory and package.json\e[2K\e[1G\e[?25h\e[32m✔\e[39m Application Directory and package.json created successfully\r\n\e[?25l\e[36m⠋\e[39m Installing dependencies"
+  - delay: 82
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠸\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠼\e[39m Installing dependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠦\e[39m Installing dependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠧\e[39m Installing dependencies"
+  - delay: 87
+    content: "\e[2K\e[1G\e[36m⠇\e[39m Installing dependencies"
+  - delay: 77
+    content: "\e[2K\e[1G\e[36m⠏\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠋\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
+  - delay: 82
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠸\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠼\e[39m Installing dependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠦\e[39m Installing dependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠧\e[39m Installing dependencies"
+  - delay: 87
+    content: "\e[2K\e[1G\e[36m⠇\e[39m Installing dependencies"
+  - delay: 77
+    content: "\e[2K\e[1G\e[36m⠏\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠋\e[39m Installing dependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
+  - delay: 44
+    content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m Dependencies installed successfully\r\n\e[?25l\e[36m⠋\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing devDependencies"
+  - delay: 83
+    content: "\e[2K\e[1G\e[36m⠸\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠼\e[39m Installing devDependencies"
+  - delay: 83
+    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing devDependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠦\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠧\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠇\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠏\e[39m Installing devDependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠋\e[39m Installing devDependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing devDependencies"
+  - delay: 83
+    content: "\e[2K\e[1G\e[36m⠸\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠼\e[39m Installing devDependencies"
+  - delay: 83
+    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing devDependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠦\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠧\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠇\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠏\e[39m Installing devDependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠋\e[39m Installing devDependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
+  - delay: 73
+    content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m DevDependencies installed successfully\r\n\e[?25l\e[36m⠋\e[39m Copying template files"
+  - delay: 14
+    content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m Template files copied successfully\r\n\e[?25l\e[36m⠋\e[39m Replacing values in template files\e[2K\e[1G\e[?25h\e[32m✔\e[39m Values in template files replaced successfully\r\n\r\n\e[92mSuccess!\e[39m Created \e[93mcool-app\e[39m at \e[93m/cool-app\e[39m\r\nInside that directory, you can run several commands:\r\n\r\n\e[36m  npm run build\e[39m\r\n    Creates a local build.\r\n\r\n\e[36m  npm start\e[39m\r\n    Starts the application in the terminal.\r\n\r\nWe suggest that you begin by typing:\r\n\r\n\e[36m  cd\e[39m /cool-app\r\n  \e[36mnpm run build && npm start\e[39m\r\n\r\n\e[93mHappy CLI creating!\e[39m\r\n\e[?25h"
+  - delay: 5
+    content: "$ "
+  - delay: 1000
+    content: c
+  - delay: 100
+    content: d
+  - delay: 100
+    content: " "
+  - delay: 100
+    content: c
+  - delay: 100
+    content: o
+  - delay: 100
+    content: o
+  - delay: 100
+    content: l
+  - delay: 100
+    content: "-"
+  - delay: 100
+    content: a
+  - delay: 100
+    content: p
+  - delay: 100
+    content: p
+  - delay: 100
+    content: "\r\ncool-app $ "
+  - delay: 100
+    content: "n"
+  - delay: 100
+    content: p
+  - delay: 100
+    content: m
+  - delay: 100
+    content: " "
+  - delay: 100
+    content: r
+  - delay: 100
+    content: u
+  - delay: 100
+    content: "n"
+  - delay: 100
+    content: " "
+  - delay: 100
+    content: b
+  - delay: 100
+    content: u
+  - delay: 100
+    content: i
+  - delay: 100
+    content: l
+  - delay: 100
+    content: d
+  - delay: 100
+    content: " "
+  - delay: 100
+    content: "&"
+  - delay: 100
+    content: "&"
+  - delay: 100
+    content: " "
+  - delay: 100
+    content: "n"
+  - delay: 100
+    content: p
+  - delay: 100
+    content: m
+  - delay: 100
+    content: " "
+  - delay: 100
+    content: s
+  - delay: 100
+    content: t
+  - delay: 100
+    content: a
+  - delay: 100
+    content: r
+  - delay: 100
+    content: t
+  - delay: 500
+    content: "\r\n"
+  - delay: 475
+    content: "\r\n> cool-app@0.0.0 build /cool-app\r\n> babel src -d build\r\n\r\n"
+  - delay: 1383
+    content: "Successfully compiled 4 files with Babel (931ms).\r\n"
+  - delay: 501
+    content: "\r\n> cool-app@0.0.0 start /cool-app\r\n> node build/index.js -- start\r\n\r\n"
+  - delay: 487
+    content: "\e[2J\e[0f"
+  - delay: 5
+    content: "\e[39m\r\n\e[95m                           ╭──────────────────────────────────────────────╮\e[39m\r\n                           \e[95m│\e[39m \e[94m                    __                      \e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m  _________  ____  / /     ____ _____  ____ \e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m / ___/ __ \\/ __ \\/ /_____/ __ `/ __ \\/ __ \\\e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m/ /__/ /_/ / /_/ / /_____/ /_/ / /_/ / /_/ /\e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m\\___/\\____/\\____/_/      \\__,_/ .___/ .___/ \e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m                             /_/   /_/      \e[39m \e[95m│\e[39m\r\n\e[95m                           ╰──────────────────────────────────────────────╯\e[39m\r\n"
+  - delay: 17
+    content: "\e[?25l\e[32m?\e[39m \e[1mMain Menu\e[22m\e[0m \e[0m\e[2m(Use arrow keys)\e[22m\r\n\e[36m❯ Option 1\e[39m \r\n  Option 2 \r\n  Option 3 \r\n  \e[2m──────────────\e[22m\r\n  About \r\n  Exit \e[7D\e[7C"
+  - delay: 5000
+    content: "\r\n\e[?25h"
