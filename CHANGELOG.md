@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CONTRIBUTING.md
 - GIF examples
 - Use of `update-notifier` to alert the user to a newer version
+- Added `Additional Features to Be Added` to README
 
 ### Changed
 
