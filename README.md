@@ -20,7 +20,7 @@
     <br> 
 </p>
 
-![Example of create-cli-application running](https://res.cloudinary.com/alexlee-dev/image/upload/v1590711256/create-cli-application/example.gif)
+![Example of create-cli-application running](gifs/example.gif)
 
 ## 📝 Table of Contents
 
@@ -62,7 +62,7 @@ Want support for an additional language? Feel free to open a [new issue](https:/
 
 You can choose to use the application in an interactive mode by passing the flag `--interactive`.
 
-![Interactive Mode Example](https://res.cloudinary.com/alexlee-dev/image/upload/v1590763194/create-cli-application/interactive.gif)
+![Interactive Mode Example](gifs/interactive.gif)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
