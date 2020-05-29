@@ -11,9 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Format of website in `author` field of `package.json`
+
 ### Removed
 
 ### Fixed
+
+- Add missing `rimraf` dependency
 
 ## [0.5.0] - 2020-05-29
 

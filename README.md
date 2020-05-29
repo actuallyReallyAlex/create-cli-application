@@ -93,3 +93,4 @@ You can choose to use the application in an interactive mode by passing the flag
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 - Some inspiration from the developers behind [create-react-app](https://github.com/facebook/create-react-app).
+- [Martin Rosenberg](https://github.com/MartinRosenberg) - Beta Tester and Dev Friend :)
