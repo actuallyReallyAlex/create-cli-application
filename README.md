@@ -58,6 +58,12 @@ By deafault, **create-cli-application** will create your application as a JavaSc
 
 Want support for an additional language? Feel free to open a [new issue](https://github.com/alexlee-dev/create-cli-application/issues/new).
 
+### Interactive Mode
+
+You can choose to use the application in an interactive mode by passing the flag `--interactive`.
+
+![Interactive Mode Example](https://res.cloudinary.com/alexlee-dev/image/upload/v1590763194/create-cli-application/interactive.gif)
+
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [@sentry/node](https://sentry.io/welcome/) - Sentry is cross-platform application monitoring, with a focus on error reporting.
