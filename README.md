@@ -83,6 +83,13 @@ You can choose to use the application in an interactive mode by passing the flag
 
 - [Alex Lee](https://github.com/alexlee-dev) - Application Developer
 
+## 🚀 Additional Features to Be Added
+
+- Compiler Choice
+- Formatter Choice
+- Linter Choice
+- Menu Styling
+
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 - Some inspiration from the developers behind [create-react-app](https://github.com/facebook/create-react-app).
