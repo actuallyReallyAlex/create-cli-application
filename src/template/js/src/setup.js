@@ -11,7 +11,7 @@ const setup = async (state) => {
     clear();
 
     console.log(
-      `Welcome to ${chalk.yellowBright(
+      `Welcome to ${chalk.blueBright(
         "___APP NAME___"
       )}! Let's walk you through the initial set up.\n`
     );
@@ -20,7 +20,7 @@ const setup = async (state) => {
       {
         type: "input",
         name: "specialKey",
-        message: `Please enter your ${chalk.yellowBright("special key")}:`,
+        message: `Please enter your ${chalk.blueBright("special key")}:`,
       },
     ]);
     // * Template value. Change to be required setup or don't set up at all :)

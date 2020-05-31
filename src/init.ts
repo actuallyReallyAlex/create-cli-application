@@ -23,13 +23,13 @@ export const createProjectDirectory = async (
   fs.ensureDirSync(root);
 
   console.log();
-  console.log(`Creating a new CLI app in ${chalk.yellowBright(root)}.`);
+  console.log(`Creating a new CLI app in ${chalk.blueBright(root)}.`);
   console.log();
   console.log(
     `Source Language: ${
       language === "js"
-        ? chalk.yellowBright("JavaScript")
-        : chalk.yellowBright("TypeScript")
+        ? chalk.blueBright("JavaScript")
+        : chalk.blueBright("TypeScript")
     }`
   );
   console.log();
@@ -292,22 +292,22 @@ export const displaySuccessMessage = (applicationName: string): void => {
 
   console.log();
   console.log(
-    `${chalk.greenBright("Success!")} Created ${chalk.yellowBright(
+    `${chalk.greenBright("Success!")} Created ${chalk.blueBright(
       applicationName
-    )} at ${chalk.yellowBright(root)}`
+    )} at ${chalk.blueBright(root)}`
   );
   console.log("Inside that directory, you can run several commands:");
   console.log();
-  console.log(chalk.cyan(`  npm run build`));
+  console.log(chalk.blueBright(`  npm run build`));
   console.log("    Creates a local build.");
   console.log();
-  console.log(chalk.cyan(`  npm start`));
+  console.log(chalk.blueBright(`  npm start`));
   console.log("    Starts the application in the terminal.");
   console.log();
   console.log("We suggest that you begin by typing:");
   console.log();
-  console.log(chalk.cyan("  cd"), root);
-  console.log(`  ${chalk.cyan(`npm run build && npm start`)}`);
+  console.log(chalk.blueBright("  cd"), root);
+  console.log(`  ${chalk.blueBright(`npm run build && npm start`)}`);
   console.log();
-  console.log(chalk.yellowBright("Happy CLI creating!"));
+  console.log(chalk.blueBright("Happy CLI creating!"));
 };
