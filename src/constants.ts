@@ -6,8 +6,8 @@ export const dependencies = [
   "chalk",
   "clear",
   "configstore",
+  "figlet",
   "inquirer",
-  "pickitt",
 ];
 
 /**
@@ -25,8 +25,11 @@ export const devDependencies = [
  * These dev dependencies are for TypeScript projects.
  */
 export const devDependenciesTS = [
+  "@types/boxen",
+  "@types/chalk",
   "@types/clear",
   "@types/configstore",
+  "@types/figlet",
   "@types/inquirer",
   "@types/node",
   "rimraf",

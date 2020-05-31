@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Format of website in `author` field of `package.json`
 - Changed terminal colors to be more more legible on bright terminals
+- Abstracted the `titleScreen()` functionality into `create-cli-application` itself, so `pickitt` is not needed
 
 ### Removed
 

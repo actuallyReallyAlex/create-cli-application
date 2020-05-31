@@ -1,10 +1,10 @@
 import clear from "clear";
 import Configstore from "configstore";
 import EventEmitter from "events";
-import { titleScreen } from "pickitt";
 
 import { displayMainMenu, interpretMenuAction } from "./menu";
 import setup from "./setup";
+import { titleScreen } from "./util";
 import { AppState } from "./types";
 
 /**
