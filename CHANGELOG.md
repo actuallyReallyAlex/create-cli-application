@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Add missing `rimraf` dependency
+- Fix installing devDependencies without `--save-dev`
 
 ## [0.5.0] - 2020-05-29
 
