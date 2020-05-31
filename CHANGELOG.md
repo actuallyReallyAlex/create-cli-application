@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- `Terminalizer` as a devDependency
+
 ### Fixed
 
 - Add missing `rimraf` dependency
