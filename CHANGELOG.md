@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2020-06-01
+
+### ✏️ Better Logging
+
+### Added
+
+- Confirmed OS's in README
+
+### Changed
+
+- Update Notifier will now use version from installed package.json
+- Slightly more robust logging on error
+- Spinner fail and then log on next line
+
+### Removed
+
+### Fixed
+
+- `slant` in TypeScript not recognized as `Slant`
+
 ## [0.6.0] - 2020-06-01
 
 ### 🐛 The Bug Squasher

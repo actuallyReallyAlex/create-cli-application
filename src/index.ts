@@ -3,6 +3,7 @@ import chalk from "chalk";
 import commander from "commander";
 import inquirer from "inquirer";
 import updateNotifier from "update-notifier";
+import pkg from "../package.json";
 
 /**
  * Initialize Sentry
@@ -10,7 +11,7 @@ import updateNotifier from "update-notifier";
 Sentry.init({
   dsn:
     "https://55c913cc3d394f71ba669fda095698fd@o202486.ingest.sentry.io/5254191",
-  release: "0.6.0",
+  release: "0.7.0",
 });
 
 import {
@@ -46,7 +47,7 @@ const main = async (): Promise<void> => {
      * The program that parses the initial user input
      */
     const program = new commander.Command("create-cli-application")
-      .version("0.6.0")
+      .version("0.7.0")
       .arguments("<application-name>")
       .usage(`${chalk.blueBright("<application-name>")} [options]`)
       .action((name) => {
@@ -145,7 +146,7 @@ const main = async (): Promise<void> => {
     updateNotifier({
       pkg: {
         name: "create-cli-application",
-        version: "0.6.0", // TODO - This won't ever update. Need to use package.json
+        version: pkg.version,
       },
     }).notify();
   } catch (error) {

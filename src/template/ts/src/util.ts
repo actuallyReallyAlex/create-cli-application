@@ -59,7 +59,7 @@ export const titleScreen = (title: string): Promise<void> =>
   new Promise(async (resolve, reject) => {
     try {
       const text: string = await figletPromise(title, {
-        font: "slant",
+        font: "Slant",
       });
 
       clear();
