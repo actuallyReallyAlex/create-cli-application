@@ -32,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- [#8 - ENOENT](https://github.com/alexlee-dev/create-cli-application/issues/8)
+
 ## [0.7.0] - 2020-06-01
 
 ### ✏️ Better Logging
