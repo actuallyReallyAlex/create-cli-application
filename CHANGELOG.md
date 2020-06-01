@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Warning about unusable Node version (less than v10.0.0)
 - Wrapper to check if directory exists before removing with `rimraf`
+- Additional logging when an error occurs
 
 ### Changed
 

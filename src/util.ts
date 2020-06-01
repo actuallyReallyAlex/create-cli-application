@@ -20,12 +20,13 @@ export const executeCommand = async (
     const cp = spawn(command, args, options);
     cp.on("error", (err: Error) => {
       if (err) {
+        console.log({ command, args, options });
         reject(err.message);
       }
     });
     cp.on("exit", (code: number | null, signal) => {
       if (code !== 0) {
-        reject({ code, signal });
+        reject({ args, command, code, signal, options });
       }
       resolve();
     });
