@@ -46,7 +46,7 @@ I generally use a template when developing CLI applications for myself. I want t
 
 [x] MacOS
 [x] Linux
-[ ] Windows (Currently unstable. Attempting to fix)
+[x] Windows
 
 ### Installing
 
@@ -100,3 +100,4 @@ You can choose to use the application in an interactive mode by passing the flag
 
 - Some inspiration from the developers behind [create-react-app](https://github.com/facebook/create-react-app).
 - [Martin Rosenberg](https://github.com/MartinRosenberg) - Beta Tester and Dev Friend :)
+- [Craig Lam](https://github.com/siliconeidolon) - Beta Tester and Dev Friend :)
