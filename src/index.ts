@@ -3,6 +3,7 @@ import chalk from "chalk";
 import commander from "commander";
 import inquirer from "inquirer";
 import updateNotifier from "update-notifier";
+import pkg from "../package.json";
 
 /**
  * Initialize Sentry
@@ -145,7 +146,7 @@ const main = async (): Promise<void> => {
     updateNotifier({
       pkg: {
         name: "create-cli-application",
-        version: "0.7.0", // TODO - This won't ever update. Need to use package.json
+        version: pkg.version,
       },
     }).notify();
   } catch (error) {
