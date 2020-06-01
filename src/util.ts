@@ -14,7 +14,7 @@ import validateProjectName from "validate-npm-package-name";
 export const executeCommand = async (
   command: string,
   args?: string[],
-  options?: { cwd?: string }
+  options?: { cwd?: string; shell?: boolean }
 ): Promise<void | { code: number; signal: any }> =>
   new Promise((resolve, reject) => {
     const cp = spawn(command, args, options);
@@ -60,7 +60,9 @@ export const cleanupError = async (
     const rootExists = await fs.pathExists(root);
 
     if (rootExists) {
-      await executeCommand("rimraf", [root]);
+      await executeCommand("rimraf", [root], {
+        shell: process.platform === "win32",
+      });
     }
   } catch (error) {
     throw new Error(error);
