@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `slant` in TypeScript not recognized as `Slant`
+
 ## [0.6.0] - 2020-06-01
 
 ### 🐛 The Bug Squasher
