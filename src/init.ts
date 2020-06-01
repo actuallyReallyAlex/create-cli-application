@@ -332,7 +332,7 @@ export const displaySuccessMessage = (applicationName: string): void => {
   console.log();
   console.log("We suggest that you begin by typing:");
   console.log();
-  console.log(chalk.blueBright("  cd"), root);
+  console.log(chalk.blueBright(`  cd `) + chalk.blueBright(root));
   console.log(`  ${chalk.blueBright(`npm run build && npm start`)}`);
   console.log();
   console.log(chalk.blueBright("Happy CLI creating!"));

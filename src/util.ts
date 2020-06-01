@@ -121,6 +121,9 @@ export const validateApplicationName = (applicationName: any) => {
   }
 };
 
+/**
+ * Verifies that the application can run. Needs >= Node v10.0.0
+ */
 export const verifyNodeVersion = (): void => {
   if (!semver.satisfies(process.version, ">=10.0.0")) {
     console.error(

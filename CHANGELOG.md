@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0] - 2020-06-01
+
+### 📝 Clerical Adjustments
+
+### Added
+
+- Added [siliconeidolon](https://github.com/siliconeidolon) to acknowledgements
+- Comments on `verifyNodeVersion()`
+
+### Changed
+
+- New user directory at success message is now also in blue
+- Update README
+- Update GIFs
+
+### Removed
+
+### Fixed
+
 ## [0.8.0] - 2020-06-01
 
 ### ✏️ Shell Option
@@ -19,6 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Fixed
+
+- [#8 - ENOENT](https://github.com/alexlee-dev/create-cli-application/issues/8)
 
 ## [0.7.0] - 2020-06-01
 
