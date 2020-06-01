@@ -66,7 +66,7 @@ export const createProjectDirectory = async (
     );
   } catch (error) {
     spinner.fail();
-    console.log("")
+    console.log("");
     throw new Error(error);
   }
 };
@@ -88,12 +88,22 @@ export const installDependencies = async (
     const installCommand = "npm";
     let installArgs = ["install", "--save"];
     installArgs = installArgs.concat(dependencies);
-    // * Create a process that installs the dependencies
-    await executeCommand(installCommand, installArgs, { cwd: root });
-    spinner.succeed("Dependencies installed successfully");
+    // * Verify that the directory exists 1st
+    const pathExists = await fs.pathExists(root);
+    if (pathExists) {
+      // * Create a process that installs the dependencies
+      await executeCommand(installCommand, installArgs, {
+        cwd: root,
+        shell: process.platform === "win32",
+      });
+      spinner.succeed("Dependencies installed successfully");
+    } else {
+      spinner.fail(`Path: ${root} does not exist.`);
+      throw new Error(`Path: ${root} does not exist.`);
+    }
   } catch (error) {
     spinner.fail();
-    console.log("")
+    console.log("");
     throw new Error(error);
   }
 };
@@ -124,12 +134,22 @@ export const installDevDependencies = async (
       installArgs = installArgs.concat(devDependencies);
     }
 
-    // * Creates a process that installs the dev dependencies
-    await executeCommand(installCommand, installArgs, { cwd: root });
-    spinner.succeed("DevDependencies installed successfully");
+    // * Verify that the directory exists 1st
+    const pathExists = await fs.pathExists(root);
+    if (pathExists) {
+      // * Create a process that installs the dependencies
+      await executeCommand(installCommand, installArgs, {
+        cwd: root,
+        shell: process.platform === "win32",
+      });
+      spinner.succeed("DevDependencies installed successfully");
+    } else {
+      spinner.fail(`Path: ${root} does not exist.`);
+      throw new Error(`Path: ${root} does not exist.`);
+    }
   } catch (error) {
     spinner.fail();
-    console.log("")
+    console.log("");
     throw new Error(error);
   }
 };
@@ -190,7 +210,7 @@ export const copyTemplateFiles = async (
     spinner.succeed("Template files copied successfully");
   } catch (error) {
     spinner.fail();
-    console.log("")
+    console.log("");
     throw new Error(error);
   }
 };
@@ -242,7 +262,7 @@ export const replaceTemplateValues = async (
     spinner.succeed("Values in template files replaced successfully");
   } catch (error) {
     spinner.fail();
-    console.log("")
+    console.log("");
     throw new Error(error);
   }
 };
@@ -283,7 +303,7 @@ export const createTSConfig = async (
     spinner.succeed("tsconfig.json created successfully");
   } catch (error) {
     spinner.fail();
-    console.log("")
+    console.log("");
     throw new Error(error);
   }
 };
