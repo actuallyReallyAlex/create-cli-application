@@ -171,62 +171,82 @@ records:
   - delay: 100
     content: "\r\n"
   - delay: 500
-    content: "\r\nCreating a new CLI app in \e[93m/cool-app\e[39m.\r\n\r\nSource Language: \e[93mJavaScript\e[39m\r\n\r\n\e[?25l\e[36m⠋\e[39m Creating Application directory and package.json\e[2K\e[1G\e[?25h\e[32m✔\e[39m Application Directory and package.json created successfully\r\n\e[?25l\e[36m⠋\e[39m Installing dependencies"
-  - delay: 82
+    content: "\r\nCreating a new CLI app in \e[94m/cool-app\e[39m.\r\n\r\nSource Language: \e[94mJavaScript\e[39m\r\n\r\n\e[?25l"
+  - delay: 7
+    content: "\e[36m⠋\e[39m Creating Application directory and package.json\e[2K\e[1G\e[?25h\e[32m✔\e[39m Application Directory and package.json created successfully\r\n\e[?25l\e[36m⠋\e[39m Installing dependencies"
+  - delay: 84
     content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
   - delay: 80
     content: "\e[2K\e[1G\e[36m⠹\e[39m Installing dependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠸\e[39m Installing dependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠼\e[39m Installing dependencies"
-  - delay: 84
-    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing dependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠦\e[39m Installing dependencies"
-  - delay: 84
-    content: "\e[2K\e[1G\e[36m⠧\e[39m Installing dependencies"
-  - delay: 87
-    content: "\e[2K\e[1G\e[36m⠇\e[39m Installing dependencies"
-  - delay: 77
-    content: "\e[2K\e[1G\e[36m⠏\e[39m Installing dependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠋\e[39m Installing dependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
   - delay: 82
-    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing dependencies"
-  - delay: 80
     content: "\e[2K\e[1G\e[36m⠸\e[39m Installing dependencies"
   - delay: 80
     content: "\e[2K\e[1G\e[36m⠼\e[39m Installing dependencies"
-  - delay: 84
+  - delay: 85
     content: "\e[2K\e[1G\e[36m⠴\e[39m Installing dependencies"
   - delay: 80
     content: "\e[2K\e[1G\e[36m⠦\e[39m Installing dependencies"
-  - delay: 84
+  - delay: 81
     content: "\e[2K\e[1G\e[36m⠧\e[39m Installing dependencies"
-  - delay: 87
+  - delay: 98
     content: "\e[2K\e[1G\e[36m⠇\e[39m Installing dependencies"
   - delay: 77
     content: "\e[2K\e[1G\e[36m⠏\e[39m Installing dependencies"
-  - delay: 80
+  - delay: 81
     content: "\e[2K\e[1G\e[36m⠋\e[39m Installing dependencies"
-  - delay: 80
+  - delay: 84
     content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
-  - delay: 44
-    content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m Dependencies installed successfully\r\n\e[?25l\e[36m⠋\e[39m Installing devDependencies"
+  - delay: 79
+    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing dependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠸\e[39m Installing dependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠼\e[39m Installing dependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing dependencies"
+  - delay: 83
+    content: "\e[2K\e[1G\e[36m⠦\e[39m Installing dependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠧\e[39m Installing dependencies"
+  - delay: 83
+    content: "\e[2K\e[1G\e[36m⠇\e[39m Installing dependencies"
+  - delay: 83
+    content: "\e[2K\e[1G\e[36m⠏\e[39m Installing dependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠋\e[39m Installing dependencies"
+  - delay: 84
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing dependencies"
+  - delay: 79
+    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing dependencies\e[2K\e[1G\e[?25h\e[32m✔\e[39m Dependencies installed successfully\r\n\e[?25l\e[36m⠋\e[39m Installing devDependencies"
   - delay: 80
     content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
-  - delay: 84
-    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing devDependencies"
   - delay: 83
+    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing devDependencies"
+  - delay: 81
     content: "\e[2K\e[1G\e[36m⠸\e[39m Installing devDependencies"
   - delay: 80
     content: "\e[2K\e[1G\e[36m⠼\e[39m Installing devDependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠦\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠧\e[39m Installing devDependencies"
+  - delay: 81
+    content: "\e[2K\e[1G\e[36m⠇\e[39m Installing devDependencies"
   - delay: 83
+    content: "\e[2K\e[1G\e[36m⠏\e[39m Installing devDependencies"
+  - delay: 83
+    content: "\e[2K\e[1G\e[36m⠋\e[39m Installing devDependencies"
+  - delay: 82
+    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
+  - delay: 82
+    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing devDependencies"
+  - delay: 80
+    content: "\e[2K\e[1G\e[36m⠸\e[39m Installing devDependencies"
+  - delay: 79
+    content: "\e[2K\e[1G\e[36m⠼\e[39m Installing devDependencies"
+  - delay: 80
     content: "\e[2K\e[1G\e[36m⠴\e[39m Installing devDependencies"
   - delay: 81
     content: "\e[2K\e[1G\e[36m⠦\e[39m Installing devDependencies"
@@ -236,37 +256,17 @@ records:
     content: "\e[2K\e[1G\e[36m⠇\e[39m Installing devDependencies"
   - delay: 80
     content: "\e[2K\e[1G\e[36m⠏\e[39m Installing devDependencies"
-  - delay: 81
+  - delay: 80
     content: "\e[2K\e[1G\e[36m⠋\e[39m Installing devDependencies"
-  - delay: 84
-    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
   - delay: 80
     content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
-  - delay: 84
-    content: "\e[2K\e[1G\e[36m⠹\e[39m Installing devDependencies"
-  - delay: 83
-    content: "\e[2K\e[1G\e[36m⠸\e[39m Installing devDependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠼\e[39m Installing devDependencies"
-  - delay: 83
-    content: "\e[2K\e[1G\e[36m⠴\e[39m Installing devDependencies"
-  - delay: 81
-    content: "\e[2K\e[1G\e[36m⠦\e[39m Installing devDependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠧\e[39m Installing devDependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠇\e[39m Installing devDependencies"
-  - delay: 80
-    content: "\e[2K\e[1G\e[36m⠏\e[39m Installing devDependencies"
-  - delay: 81
-    content: "\e[2K\e[1G\e[36m⠋\e[39m Installing devDependencies"
-  - delay: 84
-    content: "\e[2K\e[1G\e[36m⠙\e[39m Installing devDependencies"
-  - delay: 73
+  - delay: 51
     content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m DevDependencies installed successfully\r\n\e[?25l\e[36m⠋\e[39m Copying template files"
-  - delay: 14
-    content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m Template files copied successfully\r\n\e[?25l\e[36m⠋\e[39m Replacing values in template files\e[2K\e[1G\e[?25h\e[32m✔\e[39m Values in template files replaced successfully\r\n\r\n\e[92mSuccess!\e[39m Created \e[93mcool-app\e[39m at \e[93m/cool-app\e[39m\r\nInside that directory, you can run several commands:\r\n\r\n\e[36m  npm run build\e[39m\r\n    Creates a local build.\r\n\r\n\e[36m  npm start\e[39m\r\n    Starts the application in the terminal.\r\n\r\nWe suggest that you begin by typing:\r\n\r\n\e[36m  cd\e[39m /cool-app\r\n  \e[36mnpm run build && npm start\e[39m\r\n\r\n\e[93mHappy CLI creating!\e[39m\r\n\e[?25h"
-  - delay: 5
+  - delay: 16
+    content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m Template files copied successfully\r\n\e[?25l\e[36m⠋\e[39m Replacing values in template files\e[2K\e[1G\e[?25h\e[32m✔\e[39m Values in template files replaced successfully\r\n\r\n\e[92mSuccess!\e[39m Created \e[94mcool-app\e[39m at \e[94m/cool-app\e[39m\r\nInside that directory, you can run several commands:\r\n\r\n\e[94m  npm run build\e[39m\r\n    Creates a local build.\r\n\r\n\e[94m  npm start\e[39m\r\n    Starts the application in the terminal.\r\n\r\nWe suggest that you begin by typing:\r\n\r\n\e[94m  cd \e[39m\e[94m/cool-app\e[39m\r\n  \e[94mnpm run build && npm start\e[39m\r\n\r\n\e[94mHappy CLI creating!\e[39m\r\n"
+  - delay: 63
+    content: "\e[?25h"
+  - delay: 6
     content: "$ "
   - delay: 1000
     content: c
@@ -344,19 +344,19 @@ records:
     content: r
   - delay: 100
     content: t
-  - delay: 500
+  - delay: 100
     content: "\r\n"
-  - delay: 475
+  - delay: 494
     content: "\r\n> cool-app@0.0.0 build /cool-app\r\n> babel src -d build\r\n\r\n"
-  - delay: 1383
-    content: "Successfully compiled 4 files with Babel (931ms).\r\n"
-  - delay: 501
+  - delay: 1299
+    content: "Successfully compiled 5 files with Babel (909ms).\r\n"
+  - delay: 500
     content: "\r\n> cool-app@0.0.0 start /cool-app\r\n> node build/index.js -- start\r\n\r\n"
-  - delay: 487
+  - delay: 500
     content: "\e[2J\e[0f"
   - delay: 5
     content: "\e[39m\r\n\e[95m                           ╭──────────────────────────────────────────────╮\e[39m\r\n                           \e[95m│\e[39m \e[94m                    __                      \e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m  _________  ____  / /     ____ _____  ____ \e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m / ___/ __ \\/ __ \\/ /_____/ __ `/ __ \\/ __ \\\e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m/ /__/ /_/ / /_/ / /_____/ /_/ / /_/ / /_/ /\e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m\\___/\\____/\\____/_/      \\__,_/ .___/ .___/ \e[39m \e[95m│\e[39m\r\n                           \e[95m│\e[39m \e[94m                             /_/   /_/      \e[39m \e[95m│\e[39m\r\n\e[95m                           ╰──────────────────────────────────────────────╯\e[39m\r\n"
-  - delay: 17
+  - delay: 11
     content: "\e[?25l\e[32m?\e[39m \e[1mMain Menu\e[22m\e[0m \e[0m\e[2m(Use arrow keys)\e[22m\r\n\e[36m❯ Option 1\e[39m \r\n  Option 2 \r\n  Option 3 \r\n  \e[2m──────────────\e[22m\r\n  About \r\n  Exit \e[7D\e[7C"
   - delay: 5000
     content: "\r\n\e[?25h"
