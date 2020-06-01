@@ -42,6 +42,12 @@ I generally use a template when developing CLI applications for myself. I want t
 - Node (>= v10.0.0)
 - NPM
 
+### OS
+
+[x] MacOS
+[x] Linux
+[ ] Windows (Currently unstable. Attempting to fix)
+
 ### Installing
 
 `npm install -g create-cli-application`
