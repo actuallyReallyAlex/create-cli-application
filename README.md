@@ -39,7 +39,7 @@ I generally use a template when developing CLI applications for myself. I want t
 
 ### Prerequisites
 
-- Node
+- Node (>= v10.0.0)
 - NPM
 
 ### Installing
