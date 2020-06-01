@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update Notifier will now use version from installed package.json
+- Slightly more robust logging on error
+- Spinner fail and then log on next line
 
 ### Removed
 

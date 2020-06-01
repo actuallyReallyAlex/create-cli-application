@@ -66,6 +66,7 @@ export const createProjectDirectory = async (
     );
   } catch (error) {
     spinner.fail();
+    console.log("")
     throw new Error(error);
   }
 };
@@ -92,6 +93,7 @@ export const installDependencies = async (
     spinner.succeed("Dependencies installed successfully");
   } catch (error) {
     spinner.fail();
+    console.log("")
     throw new Error(error);
   }
 };
@@ -127,6 +129,7 @@ export const installDevDependencies = async (
     spinner.succeed("DevDependencies installed successfully");
   } catch (error) {
     spinner.fail();
+    console.log("")
     throw new Error(error);
   }
 };
@@ -187,6 +190,7 @@ export const copyTemplateFiles = async (
     spinner.succeed("Template files copied successfully");
   } catch (error) {
     spinner.fail();
+    console.log("")
     throw new Error(error);
   }
 };
@@ -238,6 +242,7 @@ export const replaceTemplateValues = async (
     spinner.succeed("Values in template files replaced successfully");
   } catch (error) {
     spinner.fail();
+    console.log("")
     throw new Error(error);
   }
 };
@@ -278,6 +283,7 @@ export const createTSConfig = async (
     spinner.succeed("tsconfig.json created successfully");
   } catch (error) {
     spinner.fail();
+    console.log("")
     throw new Error(error);
   }
 };
