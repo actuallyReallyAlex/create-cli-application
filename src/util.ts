@@ -49,7 +49,11 @@ export const cleanupError = async (
     // * Application Directory
     const root = path.resolve(applicationName);
 
-    await executeCommand("rimraf", [root]);
+    const rootExists = await fs.pathExists(root);
+
+    if (rootExists) {
+      await executeCommand("rimraf", [root]);
+    }
   } catch (error) {
     throw new Error(error);
   }
