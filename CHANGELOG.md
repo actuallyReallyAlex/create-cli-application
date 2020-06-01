@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2020-06-01
+
+### 🐛 The Bug Squasher
+
+### Added
+
+- Warning about unusable Node version (less than v10.0.0)
+- Wrapper to check if directory exists before removing with `rimraf`
+- Additional logging when an error occurs
+
+### Changed
+
+- Format of website in `author` field of `package.json`
+- Changed terminal colors to be more more legible on bright terminals
+- Abstracted the `titleScreen()` functionality into `create-cli-application` itself, so `pickitt` is not needed
+
+### Removed
+
+- `Terminalizer` as a devDependency
+
+### Fixed
+
+- Add missing `rimraf` dependency
+- Fix installing devDependencies without `--save-dev`
+- Fix `slant` not being recognized by Figlet as `Slant` in fonts
+
 ## [0.5.0] - 2020-05-29
 
 ### ❗Update Notifier

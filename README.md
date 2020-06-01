@@ -39,7 +39,7 @@ I generally use a template when developing CLI applications for myself. I want t
 
 ### Prerequisites
 
-- Node
+- Node (>= v10.0.0)
 - NPM
 
 ### Installing
@@ -93,3 +93,4 @@ You can choose to use the application in an interactive mode by passing the flag
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 - Some inspiration from the developers behind [create-react-app](https://github.com/facebook/create-react-app).
+- [Martin Rosenberg](https://github.com/MartinRosenberg) - Beta Tester and Dev Friend :)

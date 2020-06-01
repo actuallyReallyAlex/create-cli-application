@@ -10,7 +10,7 @@ import updateNotifier from "update-notifier";
 Sentry.init({
   dsn:
     "https://55c913cc3d394f71ba669fda095698fd@o202486.ingest.sentry.io/5254191",
-  release: "0.5.0",
+  release: "0.6.0",
 });
 
 import {
@@ -23,7 +23,11 @@ import {
   replaceTemplateValues,
 } from "./init";
 import { handleIncorrectApplicationName } from "./program";
-import { cleanupError, validateApplicationName } from "./util";
+import {
+  cleanupError,
+  validateApplicationName,
+  verifyNodeVersion,
+} from "./util";
 
 /**
  * Main CLI Program
@@ -42,9 +46,9 @@ const main = async (): Promise<void> => {
      * The program that parses the initial user input
      */
     const program = new commander.Command("create-cli-application")
-      .version("0.5.0")
+      .version("0.6.0")
       .arguments("<application-name>")
-      .usage(`${chalk.yellowBright("<application-name>")} [options]`)
+      .usage(`${chalk.blueBright("<application-name>")} [options]`)
       .action((name) => {
         applicationName = name;
       })
@@ -60,16 +64,19 @@ const main = async (): Promise<void> => {
       )
       .on("--help", () => {
         console.log(
-          `\nOnly ${chalk.yellowBright("<application-name>")} is required.`
+          `\nOnly ${chalk.blueBright("<application-name>")} is required.`
         );
         console.log(`\nIf you run into a problem, please open up a new issue:`);
         console.log(
-          `${chalk.cyan(
+          `${chalk.blueBright(
             "https://github.com/alexlee-dev/create-cli-application/issues/new"
           )}\n`
         );
       })
       .parse(process.argv);
+
+    // * Very Node Version (>=10.0.0)
+    verifyNodeVersion();
 
     // * Application Name must exist, and not consist of illegal characters
     validateApplicationName(applicationName);
@@ -138,7 +145,7 @@ const main = async (): Promise<void> => {
     updateNotifier({
       pkg: {
         name: "create-cli-application",
-        version: "0.5.0",
+        version: "0.6.0", // TODO - This won't ever update. Need to use package.json
       },
     }).notify();
   } catch (error) {

@@ -1,9 +1,9 @@
 import boxen from "boxen";
 import chalk from "chalk";
 import inquirer from "inquirer";
-import { titleScreen } from "pickitt";
 
 import { blankBoxenStyle } from "./constants";
+import { titleScreen } from './util'
 
 /**
  * Displays Main Menu to user.
@@ -73,7 +73,7 @@ export const interpretMenuAction = async (state) => {
       about: async (state) => {
         await titleScreen("___APP NAME___");
         console.log(
-          boxen(chalk.yellow(`Author: `) + "___AUTHOR NAME___", blankBoxenStyle)
+          boxen(chalk.blueBright(`Author: `) + "___AUTHOR NAME___", blankBoxenStyle)
         );
 
         console.log("Press any key to return to Main Menu ...");
