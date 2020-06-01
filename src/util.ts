@@ -2,6 +2,7 @@ import chalk from "chalk";
 import { spawn } from "child_process";
 import fs from "fs-extra";
 import path from "path";
+import semver from "semver";
 import validateProjectName from "validate-npm-package-name";
 
 /**
@@ -102,6 +103,17 @@ export const validateApplicationName = (applicationName: any) => {
 
     console.log("");
     console.error("Please choose a different application name.");
+    process.exit(1);
+  }
+};
+
+export const verifyNodeVersion = (): void => {
+  if (!semver.satisfies(process.version, ">=10.0.0")) {
+    console.error(
+      chalk.red(`create-cli-application requires Node v10 or higher.`)
+    );
+    console.error(chalk.red(`You are running Node ${process.version}.`));
+    console.error(chalk.red(`Please update your version of Node.`));
     process.exit(1);
   }
 };

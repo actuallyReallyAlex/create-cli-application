@@ -23,7 +23,11 @@ import {
   replaceTemplateValues,
 } from "./init";
 import { handleIncorrectApplicationName } from "./program";
-import { cleanupError, validateApplicationName } from "./util";
+import {
+  cleanupError,
+  validateApplicationName,
+  verifyNodeVersion,
+} from "./util";
 
 /**
  * Main CLI Program
@@ -70,6 +74,9 @@ const main = async (): Promise<void> => {
         );
       })
       .parse(process.argv);
+
+    // * Very Node Version (>=10.0.0)
+    verifyNodeVersion();
 
     // * Application Name must exist, and not consist of illegal characters
     validateApplicationName(applicationName);

@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Warning about unusable Node version (less than v10.0.0)
+
 ### Changed
 
 - Format of website in `author` field of `package.json`
