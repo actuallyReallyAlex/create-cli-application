@@ -3,7 +3,7 @@ import chalk from "chalk";
 import commander from "commander";
 import inquirer from "inquirer";
 import updateNotifier from "update-notifier";
-import pkg from "../package.json";
+const pkg = require("../package.json");
 
 /**
  * Initialize Sentry
