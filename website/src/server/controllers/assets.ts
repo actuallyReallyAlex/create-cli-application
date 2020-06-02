@@ -5,6 +5,7 @@ class AssetsController {
   public router: Router = express.Router();
 
   static assetList: string[] = [
+    'background.png',
     'gdemo.min.css',
     'milligram.css',
     'milligram.min.css.map',
