@@ -6,7 +6,7 @@ import startApplication from '../demo/startApplication';
 
 import { buttonContainerHeights } from '../constants';
 
-const Demo: React.SFC<{}> = ({}) => {
+const Demo: React.SFC<{}> = () => {
   const [currentDemo, setCurrentDemo] = React.useState('entry');
   const [applicationCreated, setApplicationCreated] = React.useState(false);
   const [applicationStarted, setApplicationStarted] = React.useState(false);
