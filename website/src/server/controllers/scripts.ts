@@ -32,6 +32,14 @@ class ScriptsController {
         res.sendFile(path.join(__dirname, filePath));
       },
     );
+
+    this.router.get(
+      '/scripts/gdemo.min.js',
+      async (req: Request, res: Response) => {
+        const filePath = '../../node_modules/@glorious/demo/dist/gdemo.min.js';
+        res.sendFile(path.join(__dirname, filePath));
+      },
+    );
   }
 }
 

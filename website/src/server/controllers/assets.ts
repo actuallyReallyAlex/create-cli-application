@@ -4,7 +4,12 @@ import path from 'path';
 class AssetsController {
   public router: Router = express.Router();
 
-  static assetList: string[] = [];
+  static assetList: string[] = [
+    'gdemo.min.css',
+    'milligram.css',
+    'milligram.min.css.map',
+    'normalize.css',
+  ];
 
   constructor() {
     this.initializeRoutes();

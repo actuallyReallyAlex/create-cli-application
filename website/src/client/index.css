@@ -1,0 +1,44 @@
+.flex-center {
+  align-items: center;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+#demo {
+  /* margin-top: -482px; */
+  width: 100%;
+}
+
+#demo pre {
+  background: none;
+  border-left: none;
+}
+
+.terminal-blue {
+  color: #00d3ff;
+}
+
+.terminal-green {
+  color: #61ff00;
+}
+
+.terminal-margin {
+  margin-left: 10px;
+}
+
+.terminal-purple {
+  color: #f100ff;
+}
+
+.terminal-white {
+  color: #fff;
+}
+
+.terminal-no-wrap {
+  white-space: pre;
+}
