@@ -11,6 +11,7 @@
     "build-server": "rimraf build && tsc && copyfiles -f src/server/assets/**/* build/assets",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "deploy": "cd .. && git subtree push --prefix website heroku master",
     "dev": "env-cmd -e development npm start",
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
