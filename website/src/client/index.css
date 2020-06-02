@@ -10,7 +10,6 @@
 }
 
 #demo {
-  /* margin-top: -482px; */
   width: 100%;
 }
 
@@ -50,6 +49,10 @@
 
 .no-wrap {
   white-space: pre;
+}
+
+a:hover {
+  color: #00d3ff !important;
 }
 
 button:hover {

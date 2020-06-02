@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBox, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Info: React.SFC<{}> = () => (
   <div className="column column-40 flex-center">
@@ -6,14 +8,18 @@ const Info: React.SFC<{}> = () => (
     <blockquote className="blue-quote">
       A bootstrapper for creating a cli application with Node.
     </blockquote>
-    <span className="badge">15.6kB gzipped</span>
+    <span className="badge">
+      <FontAwesomeIcon icon={faBox} />
+      <span className="margin-left-sm">15.6kb gzipped</span>
+    </span>
     <a
       className="purple"
       href="https://github.com/alexlee-dev/create-cli-application"
       rel="noopener noreferrer"
       target="_blank"
     >
-      View Documentation
+      <FontAwesomeIcon icon={faExternalLinkAlt} />
+      <span className="margin-left-sm">View Documentation</span>
     </a>
   </div>
 );
