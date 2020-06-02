@@ -6,7 +6,7 @@ const Info: React.SFC<{}> = () => (
     <blockquote className="blue-quote">
       A bootstrapper for creating a cli application with Node.
     </blockquote>
-    <span>15.6kB gzipped</span>
+    <span className="badge">15.6kB gzipped</span>
     <a
       className="purple"
       href="https://github.com/alexlee-dev/create-cli-application"

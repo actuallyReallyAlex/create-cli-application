@@ -56,3 +56,16 @@ button:hover {
   background-color: #00d3ff !important;
   border-color: #00d3ff !important;
 }
+
+.badge {
+  background-color: #effef6;
+  border-color: #98efbb;
+  border: 1px solid #ebebeb;
+  color: #00ae6d;
+  font-size: 12px;
+  padding: 2px 5px;
+  text-transform: uppercase;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
