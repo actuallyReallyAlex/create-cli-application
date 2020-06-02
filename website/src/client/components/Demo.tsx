@@ -5,8 +5,14 @@ import entry from '../demo/entry';
 import startApplication from '../demo/startApplication';
 
 import { buttonContainerHeights } from '../constants';
+import useMedia from '../hooks/useMedia';
 
 const Demo: React.SFC<{}> = () => {
+  const columnSize = useMedia(
+    ['(min-width: 1000px)', '(min-width: 600px)'],
+    ['column-60', ''],
+    '',
+  );
   const [currentDemo, setCurrentDemo] = React.useState('entry');
   const [applicationCreated, setApplicationCreated] = React.useState(false);
   const [applicationStarted, setApplicationStarted] = React.useState(false);
@@ -16,7 +22,7 @@ const Demo: React.SFC<{}> = () => {
   }, []);
 
   return (
-    <div className="column column-60 flex-center">
+    <div className={`column ${columnSize} flex-center`}>
       <div id="demo" />
       <div
         id="demo-button-container"
