@@ -19,26 +19,40 @@
   border-left: none;
 }
 
-.terminal-blue {
-  color: #00d3ff;
-}
-
-.terminal-green {
-  color: #61ff00;
-}
-
-.terminal-margin {
+.margin-left-sm {
   margin-left: 10px;
 }
 
-.terminal-purple {
+.blue {
+  color: #00d3ff;
+}
+
+.blue-quote {
+  border-left: 0.3rem solid #00d3ff;
+}
+
+.green {
+  color: #61ff00;
+}
+
+.purple {
   color: #f100ff;
 }
 
-.terminal-white {
+.purple-bg {
+  background-color: #f100ff;
+  border: 0.1rem solid #f100ff;
+}
+
+.white {
   color: #fff;
 }
 
-.terminal-no-wrap {
+.no-wrap {
   white-space: pre;
+}
+
+button:hover {
+  background-color: #00d3ff !important;
+  border-color: #00d3ff !important;
 }
