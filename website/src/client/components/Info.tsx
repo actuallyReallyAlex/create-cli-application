@@ -20,7 +20,7 @@ const Info: React.SFC<{}> = () => {
       <blockquote className="blue-quote">
         A bootstrapper for creating a cli application with Node.
       </blockquote>
-      <span className="badge">
+      <span className="badge margin-bottom-md">
         <FontAwesomeIcon icon={faBox} />
         <span className="margin-left-sm">15.6kb gzipped</span>
       </span>

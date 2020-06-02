@@ -31,6 +31,7 @@ const Demo: React.SFC<{}> = () => {
         {!applicationCreated && currentDemo === 'entry' && (
           <button
             className="button purple-bg"
+            id="create-application"
             onClick={(): void =>
               createApplication({ setApplicationCreated, setCurrentDemo })
             }
@@ -42,6 +43,7 @@ const Demo: React.SFC<{}> = () => {
         {applicationCreated && currentDemo === 'create' && (
           <button
             className="button purple-bg"
+            id="start-application"
             onClick={(): void =>
               startApplication({ setApplicationStarted, setCurrentDemo })
             }
@@ -53,6 +55,7 @@ const Demo: React.SFC<{}> = () => {
         {applicationStarted && (
           <button
             className="button purple-bg"
+            id="view-documentation"
             onClick={(): void => {
               window.open(
                 'https://github.com/alexlee-dev/create-cli-application',
