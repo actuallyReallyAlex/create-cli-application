@@ -40,12 +40,12 @@ const figletPromise = (txt: string, options: any): Promise<string> =>
     figlet.text(
       txt,
       options,
-      (error: Error | null, result: string | undefined) => {
+      (error: Error | null, result?: string) => {
         if (error) {
           return reject(error);
         }
 
-        resolve(result);
+        resolve(result ?? "");
       }
     )
   );
