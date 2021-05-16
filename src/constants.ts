@@ -25,8 +25,6 @@ export const devDependencies = [
  * These dev dependencies are for TypeScript projects.
  */
 export const devDependenciesTS = [
-  "@types/boxen",
-  "@types/chalk",
   "@types/clear",
   "@types/configstore",
   "@types/figlet",
