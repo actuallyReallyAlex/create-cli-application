@@ -1,4 +1,4 @@
-import boxen, { Options as boxenOptions, BorderStyle } from "boxen";
+import boxen, { Options as boxenOptions } from "boxen";
 import chalk from "chalk";
 import clear from "clear";
 import figlet from "figlet";
@@ -24,7 +24,7 @@ export const blankBoxenStyle: boxenOptions = {
  */
 export const defaultBoxenStyle: boxenOptions = {
   borderColor: "magentaBright",
-  borderStyle: BorderStyle.Round,
+  borderStyle: "round",
   float: "center",
   padding: { top: 0, bottom: 0, right: 1, left: 1 },
 };
