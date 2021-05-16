@@ -125,14 +125,9 @@ export const installDevDependencies = async (
   try {
     spinner.start();
     const installCommand = "npm";
-    let installArgs = ["install", "--save-dev"];
-    installArgs = installArgs.concat(devDependencies);
-
-    if (language === "ts") {
-      installArgs = installArgs.concat(devDependenciesTS);
-    } else {
-      installArgs = installArgs.concat(devDependencies);
-    }
+    const installArgs = ["install", "--save-dev"].concat(
+      language === "ts" ? devDependenciesTS : devDependencies
+    );
 
     // * Verify that the directory exists 1st
     const pathExists = await fs.pathExists(root);
