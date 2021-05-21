@@ -5,7 +5,7 @@ export const dependencies = [
   "boxen",
   "chalk",
   "clear",
-  "configstore",
+  "configstore@^5.0.1",
   "figlet",
   "inquirer",
 ];
